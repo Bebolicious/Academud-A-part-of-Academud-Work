@@ -9,7 +9,7 @@ namespace Academud__A_part_of_Academud_Work
             
             // Värmecounter ??? Skapa värde för värmen genom Data.Warmth
             // Karma värde ???
-            // Rumsnamn/värde ???1
+            // Rumsnamn/värde ???
 
             for (int i = 0, j = 0; i < 20001; i++, j++)
             {
