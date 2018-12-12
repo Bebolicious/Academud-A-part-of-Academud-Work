@@ -6,44 +6,19 @@ namespace Academud__A_part_of_Academud_Work
     {
         static void Main(string[] args)
         {
+           
+           
             
-            // Värmecounter ??? Skapa värde för värmen genom Data.Warmth
-            // Karma värde ???
-            // Rumsnamn/värde ??
 
-            for (int i = 0, j = 0; i < 20001; i++, j++)
+            for (int i = 0, j = 0; i < 35001; i++, j++)
             {
+                
                 int top = Console.CursorTop;
                 int left = Console.CursorLeft;
                 Console.SetCursorPosition(0, 0);
-                Console.WriteLine("BOOTING UP ACADEMUD : {0}%", i, j);
-                
+                Console.WriteLine("BOOTING UP ACADEMUD : {0}kb/s", i, j);
             }
             Console.Clear();
-            Console.WriteLine("#########");
-            int y, b;
-            for (y = 1; y <= 7; y++)
-            {
-
-                for (b = 1; b <= y; b++)
-                {
-                    for (b = 1; b <= y; b++)
-                    {
-                        for (b = 2; b <= y; b++)
-                        {
-                            
-                            Console.Write("#");
-                        }
-                        
-                        Console.Write("#");
-                    }
-                    
-                    Console.Write("*");
-                }
-                
-                Console.WriteLine(" *######");
-            }
-            Console.WriteLine();
 
             int value = Startgame();
             Console.BackgroundColor = ConsoleColor.Green;
@@ -73,17 +48,30 @@ namespace Academud__A_part_of_Academud_Work
 
         }
 
-        private static void Jacketon()
-        {
-            throw new NotImplementedException();
-        }
+      
+
+       
 
         private static int Startgame()
         {
 
             Console.Write("Välkommen till "); Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write(" Academud, A part of Academud Work."); Console.ForegroundColor = ConsoleColor.Gray;
-            Console.Write(" Här tror vi på ett growth mudset.");
+            Console.Title = "Academud";
+            string title = @"
+                                     ,,                                            ,,  
+      db                           `7MM                                          `7MM  
+     ;MM:                            MM                                            MM  
+    ,V^MM.    ,p6'bo   ,6'Yb.   ,M''bMM  .gP'Ya   MMpMMMb.pMMMb.  7M    7M    ,M''bMM
+   ,M  `MM   6M'  OO  8)   MM ,AP    MM ,M'   Yb  MM    MM    MM  MM    AM  MM     MM
+   mmmq  MA  8M      ,pm   8MI MM    8M 'm MM MM  MM    MM    MM  8M    MM  MM     MM
+  A'     VML YM.    , 8M   MM `Mb    MM YM.    ,  MM    MM    MM  MM    MM  `Mb    MM  
+.AMA.   .AMMA.YMbmd'  `Moo9^Yo.`Wbmd'MML `Mbmmd'  MML   MML   MML  Mbod'YML.   Wmd'MML";           
+Console.WriteLine(title);
+            Console.WriteLine("_______________________________________________________________________________________ ");
+            Console.Write("                                                               A part of Academud Work.");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            
+            Console.Write("\n'Här tror vi på ett growth mudset.'");
             Console.WriteLine("\n\nKlicka på valfri knapp för att börja spela");
             Console.ReadKey();
            
@@ -117,6 +105,7 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine("1. Jag jobbar för Academud!");
                 Console.WriteLine("2. Släpp in mig jag är 2 minuter sen");
                 Console.WriteLine("3. En falafel stal min måsrulle!");
+                Console.WriteLine("Ditt val: ");
 
                 int svar2 = int.Parse(Console.ReadLine());
                 if (svar2 == 1 || svar2 == 2 || svar2 == 3)
@@ -125,7 +114,7 @@ namespace Academud__A_part_of_Academud_Work
                     Console.WriteLine("'Och hur var namnet?' Frågar Eva. \n");
                     Console.Write("- Mitt namn är ");
                     Data.Playername = Console.ReadLine();
-                    Console.WriteLine("Tack, du är välkommen in!");
+                    Console.WriteLine("Tack, du är välkommen in! ");
                 }
             }
             if (value == 2)
@@ -179,16 +168,11 @@ namespace Academud__A_part_of_Academud_Work
             {
                 Console.Clear();
                 Console.WriteLine("Med jackan på rusar du genast till kaffemaskinen. 'Herregud va varmt det är.' tänker du.");
-                Data.Warmth = 1;
-                Console.WriteLine($"Din värmenivå är nu: {Data.Warmth}");
+                Data.Warmth++;
+                
                 
             }
 
-
-               
-            
-
-            //Kalla Jacketon(); om användare väljer att ej hänga av sig jackan.  (Data.Warmth är värdet för hettan)
         }
         private static int Classroom1()
         {
