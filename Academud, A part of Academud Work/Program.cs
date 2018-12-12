@@ -6,7 +6,7 @@ namespace Academud__A_part_of_Academud_Work
     {
         static void Main(string[] args)
         {
-            
+
             // Värmecounter ??? Skapa värde för värmen genom Data.Warmth
             // Karma värde ???
             // Rumsnamn/värde ??
@@ -17,7 +17,7 @@ namespace Academud__A_part_of_Academud_Work
                 int left = Console.CursorLeft;
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine("BOOTING UP ACADEMUD : {0}%", i, j);
-                
+
             }
             Console.Clear();
             Console.WriteLine("#########");
@@ -31,16 +31,16 @@ namespace Academud__A_part_of_Academud_Work
                     {
                         for (b = 2; b <= y; b++)
                         {
-                            
+
                             Console.Write("#");
                         }
-                        
+
                         Console.Write("#");
                     }
-                    
+
                     Console.Write("*");
                 }
-                
+
                 Console.WriteLine(" *######");
             }
             Console.WriteLine();
@@ -53,10 +53,10 @@ namespace Academud__A_part_of_Academud_Work
             Console.WriteLine($"Rum Nr: {Data.Room}");
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
-           Reception(value); 
-           
+            Reception(value);
 
-           
+
+
             value = Classroom1();
             Break();
             value = Classroom2(value);
@@ -67,16 +67,12 @@ namespace Academud__A_part_of_Academud_Work
             value = Endgame(value);
 
 
-            
+
 
             Gameover();
 
         }
 
-        private static void Jacketon()
-        {
-            throw new NotImplementedException();
-        }
 
         private static int Startgame()
         {
@@ -86,7 +82,7 @@ namespace Academud__A_part_of_Academud_Work
             Console.Write(" Här tror vi på ett growth mudset.");
             Console.WriteLine("\n\nKlicka på valfri knapp för att börja spela");
             Console.ReadKey();
-           
+
             Console.Clear();
 
 
@@ -109,7 +105,7 @@ namespace Academud__A_part_of_Academud_Work
         private static void Reception(int value)
         {
             Console.Clear();
-            
+
             if (value == 1)
             {
                 Console.WriteLine("*Ring* *Ring* Detta är United Spaces du pratar med Eva.\n");
@@ -133,7 +129,7 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine("Du står i regnet och väntar ivrigt på att någon skall öppna den nedrans dörren.");
                 Console.WriteLine("En äldre herre dyker upp från tomma intet och brister ut 'Dig har jag aldrig sett här förr, vad heter du?\n ");
                 Console.Write("- Mitt namn är ");
-                    Data.Playername = Console.ReadLine();
+                Data.Playername = Console.ReadLine();
                 Console.WriteLine("Ah nej jag pratade inte med dig säger herren och går vidare.");
                 Console.ReadKey();
 
@@ -181,12 +177,12 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine("Med jackan på rusar du genast till kaffemaskinen. 'Herregud va varmt det är.' tänker du.");
                 Data.Warmth = 1;
                 Console.WriteLine($"Din värmenivå är nu: {Data.Warmth}");
-                
+
             }
 
 
-               
-            
+
+
 
             //Kalla Jacketon(); om användare väljer att ej hänga av sig jackan.  (Data.Warmth är värdet för hettan)
         }
@@ -255,78 +251,89 @@ namespace Academud__A_part_of_Academud_Work
 
         private static void Break()
         {
-            Console.WriteLine($"{Data.Playername}, du måste ta rast!\n Jaså, du 'ska bara'....? Men pingis då?\n");
-            Console.Write("1. Pingis! Rundpingis! All pingis! ");
+            Console.WriteLine($"Så många val! Vad vill du göra på rasten?");
+            Console.WriteLine();
+            Console.Write("1. Pingis! Rundpingis! Massa pingis! ");
 
             if (Data.Playername != "Magnus")
             {
-                Console.WriteLine("Snabbt, så du får Magnus super-rack!");
+                Console.WriteLine("Skynda dig så du får Magnus super-rack!");
             }
             else
             {
-                Console.WriteLine("Snabbt, innan någon tar ditt super-rack!");
+                Console.WriteLine("Skynda dig innan någon tar ditt super-rack!");
             }
 
-            Console.WriteLine("2. Se på pingis - det är ju kul att se när andra har kul...");
+            Console.WriteLine("2. Se på pingis - det är ju så kul att se när andra har kul...");
             Console.WriteLine("3. Sitt kvar och var väldigt väldigt tråkig\n");
 
             do
             {
-                Console.WriteLine("Ditt val:\n");
+                Console.WriteLine("Ditt val:");
                 int svar = int.Parse(Console.ReadLine());
-                Console.ReadKey();
+
                 Console.Clear();
 
 
                 if (svar == 1)
                 {
-                    if (Data.Jacket == true)
+                    if (Data.Warmth == 1)
                     {
                         Console.WriteLine("Nu spelar du alltså pingis med jackan på. Svetten rinner, du luktar och är långt ifrån 'Business Casual'. Korkat.");
                         Data.Warmth++;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Äh, forehanden är inte riktigt med idag. Ändå har du tagit dig till final mot {Data.ClassMate}.\n Serven är gjord och det är sudden death! Vilken kombination av slag tror du tar dig vinnande ur bataljen?");
-                        Console.WriteLine("Ange '1' för forehand, '2' för backhand. För att vinna ska summan av dina val över 5 slag vara 8.\n");
-
-                        int counter = 0;
-
-                        for (int i = 1; i <= 5; i++)
-                        {
-                            Console.Write($"Slag {i}: ");
-                            int slagPingis = int.Parse(Console.ReadLine());
-                            counter += slagPingis;
-                        }
-
+                        Console.WriteLine($"Din värmenivå är nu: {Data.Warmth}");
                         Console.ReadKey();
                         Console.Clear();
 
-                        if (counter == 8)
-                        {
-                            Console.WriteLine($"WOHO! Grattis till vinsten. Du krossa {Data.ClassMate}!");
-                        }
-
-                        else
-                        {
-                            Console.WriteLine($"NEJ! {Data.ClassMate} krossa dig! Nyligen klådd - kan du samla dig och vara en bra förlorare? (y/n)");
-                            string svarFörlorare = Console.ReadLine();
-
-                            if (svarFörlorare == "y")
-                            {
-                                Console.WriteLine("Du skakar hand och öser beröm över din motståndare! Vilket spel! Glatt traskar ni arm i arm tillbaka till klassrummet.\n");
-                                Data.Karma++;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Besvikelsen går inte att kontrollera! Du slår racket i bordet och ropar ett par mindre väl valda svordomar. Usch så pinsamt att förstöra stämningen nu när ni ska tillbaka till klassrummet.\n");
-                                Data.Karma--;
-                            }
-                        }
-
                     }
 
-                    Console.ReadKey();
+
+                    Console.WriteLine($"Äh, forehanden är inte riktigt med idag. Ändå har du tagit dig till final mot {Data.ClassMate}");
+                    Console.WriteLine("Serven är gjord och det är sudden death!Vilken kombination av slag tror du tar dig vinnande ur bataljen?");
+                    Console.WriteLine();
+                    Console.WriteLine("Ange '1' för forehand, '2' för backhand. För att vinna ska summan av dina val över 5 slag vara 8.\n");
+
+                    int counter = 0;
+
+                    for (int i = 1; i <= 5; i++)
+                    {
+                        Console.Write($"Slag {i}: ");
+                        int slagPingis = int.Parse(Console.ReadLine());
+                        counter += slagPingis;
+                    }
+
+                    Console.Clear();
+
+                    if (counter == 8)
+                    {
+                        Console.WriteLine($"WOHO! Grattis till vinsten. Du krossa {Data.ClassMate}!");
+                    }
+
+                    else
+                    {
+                        Console.WriteLine($"NEJ! {Data.ClassMate} krossa dig! Nyligen klådd - kan du samla dig och vara en bra förlorare? (y/n)");
+                        string svarFörlorare = Console.ReadLine();
+                        Console.Clear();
+
+                        if (svarFörlorare == "y")
+                        {
+                            Console.WriteLine("Du skakar hand och öser beröm över din motståndare! Vilket spel! Glatt traskar ni arm i arm tillbaka till klassrummet.\n");
+                            Data.Karma++;
+                            Console.WriteLine($"Din Karma-nivå är nu: {Data.Karma}");
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Besvikelsen går inte att kontrollera! Du slår racket i bordet och ropar ett par mindre väl valda svordomar. Usch så pinsamt att förstöra stämningen nu när ni ska tillbaka till klassrummet.\n");
+                            Data.Karma--;
+                            Console.WriteLine($"Din Karma-nivå är nu: {Data.Karma}");
+                            Console.ReadKey();
+
+                        }
+                    }
+
+                    
+
                     Console.Clear();
 
                     break;
@@ -349,7 +356,7 @@ namespace Academud__A_part_of_Academud_Work
                     } while (input != password);
 
                     Console.WriteLine();
-                    Console.WriteLine("Äntlitgen klar! Och rasten är slut.......jahopp.");
+                    Console.WriteLine("Äntligen klar! Och där tog rasten är slut.......jahopp.");
 
                     Console.ReadKey();
                     Console.Clear();
@@ -368,6 +375,7 @@ namespace Academud__A_part_of_Academud_Work
                 }
 
             } while (true);
+
         }
 
         private static int Classroom2(int value)
@@ -402,7 +410,7 @@ namespace Academud__A_part_of_Academud_Work
                     Data.Karma++;
                 }
 
-             }
+            }
 
             return svar;
         }
