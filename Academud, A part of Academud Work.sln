@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academud, A part of Academud Work", "Academud, A part of Academud Work\Academud, A part of Academud Work.csproj", "{15E7E72B-E434-49E2-9802-04615726B7AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15E7E72B-E434-49E2-9802-04615726B7AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15E7E72B-E434-49E2-9802-04615726B7AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15E7E72B-E434-49E2-9802-04615726B7AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15E7E72B-E434-49E2-9802-04615726B7AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F84D8EB0-AF52-48B5-8175-6B7AC2696209}
+	EndGlobalSection
+EndGlobal
