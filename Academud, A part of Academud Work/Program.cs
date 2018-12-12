@@ -305,6 +305,7 @@ Console.WriteLine(title);
                     if (counter == 8)
                     {
                         Console.WriteLine($"WOHO! Grattis till vinsten. Du krossa {Data.ClassMate}!");
+                        Console.ReadKey();
                     }
 
                     else
