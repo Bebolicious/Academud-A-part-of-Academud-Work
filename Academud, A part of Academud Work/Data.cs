@@ -12,7 +12,7 @@ namespace Academud__A_part_of_Academud_Work
         public static int Karma { get; set; }
         public static string Room { get; set; }
         public static bool Jacket { get; set; }
-
+        static public string ProjectBuddy { get; set; }
         static public string ClassMate { get; set; }
 
         

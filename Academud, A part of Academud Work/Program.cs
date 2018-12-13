@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 
 namespace Academud__A_part_of_Academud_Work
 {
@@ -10,7 +12,7 @@ namespace Academud__A_part_of_Academud_Work
 
             for (int i = 0, j = 0; i < 20001; i++, j++)
             {
-                
+
                 int top = Console.CursorTop;
                 int left = Console.CursorLeft;
                 Console.SetCursorPosition(0, 0);
@@ -18,7 +20,6 @@ namespace Academud__A_part_of_Academud_Work
 
             }
             Console.Clear();
-
 
             int value = Startgame();
             Console.BackgroundColor = ConsoleColor.Green;
@@ -36,10 +37,10 @@ namespace Academud__A_part_of_Academud_Work
             Break();
             value = Classroom2(value);
             value = Lunch(value);
-            value = Project(value);
+            Project();
             value = Event(value);
             value = Citystroll(value);
-            value = Endgame(value);
+            Endgame(value);
 
 
 
@@ -63,20 +64,20 @@ namespace Academud__A_part_of_Academud_Work
    ,M  `MM   6M'  OO  8)   MM ,AP    MM ,M'   Yb  MM    MM    MM  MM    AM  MM     MM
    mmmq  MA  8M      ,pm   8MI MM    8M 'm MM MM  MM    MM    MM  8M    MM  MM     MM
   A'     VML YM.    , 8M   MM `Mb    MM YM.    ,  MM    MM    MM  MM    MM  `Mb    MM  
-.AMA.   .AMMA.YMbmd'  `Moo9^Yo.`Wbmd'MML `Mbmmd'  MML   MML   MML  Mbod'YML.   Wmd'MML";           
-Console.WriteLine(title);
+.AMA.   .AMMA.YMbmd'  `Moo9^Yo.`Wbmd'MML `Mbmmd'  MML   MML   MML  Mbod'YML.   Wmd'MML";
+            Console.WriteLine(title);
             Console.WriteLine("_______________________________________________________________________________________ ");
             Console.Write("                                                               A part of Academud Work.");
             Console.ForegroundColor = ConsoleColor.Gray;
-            
+
             Console.Write("\n'Här tror vi på ett growth mudset.'");
             Console.WriteLine("\n\nKlicka på valfri knapp för att börja spela");
             Console.ReadKey();
 
+
             Console.Clear();
 
-
-
+            
             Console.Write("Det är en vanlig dag i innerstaden Göteborg, det regnar snett underifrån och du befinner dig utanför Östra Hamngatan 16.");
             Console.WriteLine("Dörren in till United Spaces tillika ditt andra hem är dessvärre låst, hur skall du ta dig in?\n");
             Console.WriteLine("1. Ring upp till receptionen via porttelefonen.");
@@ -168,14 +169,9 @@ Console.WriteLine(title);
                 Console.WriteLine("Med jackan på rusar du genast till kaffemaskinen. 'Herregud va varmt det är.' tänker du.");
                 Data.Warmth = 1;
                 Console.WriteLine($"Din värmenivå är nu: {Data.Warmth}");
-                
+
             }
 
-
-
-
-
-            //Kalla Jacketon(); om användare väljer att ej hänga av sig jackan.  (Data.Warmth är värdet för hettan)
         }
         private static int Classroom1()
         {
@@ -184,58 +180,61 @@ Console.WriteLine(title);
             Console.Write("Bredvid dig sitter: ");
             Data.ClassMate = Console.ReadLine();
             Console.WriteLine();
-            Console.WriteLine();
 
             if (Data.Playername == Data.ClassMate)
             {
                 Console.WriteLine("Okej. Du sitter alltså bredvid dig själv. Inget konstigt med det alls. ");
             }
-            else if (Data.ClassMate == "Georg")
+            else if (Data.ClassMate == "Georg" || Data.ClassMate == "George")
             {
-                Console.WriteLine("Du är nog lite morgontrött, för plötsligt inser du att stolen är tom och att Georg som alltid håller tiden är lite försenad.");
-                Console.WriteLine("Ett par minuter efter 9 kommer dock Georg och sätter sig bredvid just dig!");
+                Console.WriteLine($"Du är nog lite morgontrött, för plötsligt inser du att stolen är tom och att {Data.ClassMate} som alltid håller tiden är lite försenad.");
+                Console.WriteLine($"Ett par minuter efter 9 kommer dock {Data.ClassMate} och sätter sig bredvid just dig!");
             }
             else if (Data.ClassMate == "KG" || Data.ClassMate == "Karl")
-                Console.WriteLine("Du noterar att KG med spjutspetsprecision håller på att väga kaffebönor på sin medtagna minivåg, det hela ser mycker rofyllt ut.");
-            else if (Data.ClassMate == "Erik")
-                Console.WriteLine("Erik möter dig med en vänlig nick och informerar om att han har full koll på ventilationen i rummet. En gång vakt alltid vakt?");
-            else if (Data.ClassMate == "Oscar")
-                Console.WriteLine("Oscar hälsar dig på det ödmjuka sätt som bara en person som pysslat med återvinningsföretagande kan. ");
-            else if (Data.ClassMate == "Rebecka")
-                Console.WriteLine("Rebecka sitter och spanar på sina intet anande hundar live i mobilen och klurar på om Yoshi slutligen lyckats ta en kråka.");
-            else if (Data.ClassMate == "Sara")
-                Console.WriteLine("Du tittar dig lite försiktigt omkring så att Saras vapendragare Heidi inte sitter och blänger på dig för att du tagit hennes givna plats.");
-            else if (Data.ClassMate == "Rikard")
-                Console.WriteLine("Rikard sitter som vanligt i strumplästen och sippar på kaffe. Det ser knappast seriöst ut.");
+                Console.WriteLine($"Du noterar att {Data.ClassMate} med spjutspetsprecision håller på att väga kaffebönor på sin medtagna minivåg, det hela ser mycker rofyllt ut.");
+            else if (Data.ClassMate == "Erik" || Data.ClassMate == "Eric")
+                Console.WriteLine($"{Data.ClassMate} möter dig med en vänlig nick och informerar om att han har full koll på ventilationen i rummet. En gång vakt alltid vakt?");
+            else if (Data.ClassMate == "Oscar" || Data.ClassMate == "Oskar")
+                Console.WriteLine($"{Data.ClassMate} hälsar dig på det ödmjuka sätt som bara en person som pysslat med återvinningsföretagande kan. ");
+            else if (Data.ClassMate == "Rebecka" || Data.ClassMate == "Rebecha" || Data.ClassMate == "Rebecca" || Data.ClassMate == "Rebekka")
+                Console.WriteLine($"{Data.ClassMate} sitter och spanar på sina intet anande hundar live i mobilen och klurar på om Yoshi slutligen lyckats ta en kråka.");
+            else if (Data.ClassMate == "Sara" || Data.ClassMate == "Sarah" || Data.ClassMate == "Zara")
+                Console.WriteLine($"Du tittar dig lite försiktigt omkring så att {Data.ClassMate}s vapendragare Heidi inte sitter och blänger på dig för att du tagit hennes givna plats.");
+            else if (Data.ClassMate == "Rikard" || Data.ClassMate == "Rickard" || Data.ClassMate == "Richard")
+                Console.WriteLine($"{Data.ClassMate} sitter som vanligt i strumplästen och sippar på kaffe. Det ser knappast seriöst ut.");
             else if (Data.ClassMate == "Elin")
-                Console.WriteLine("Elin ber om ursäkt för kommande frågor och du tänker att de nog kommer snart.");
-            else if (Data.ClassMate == "Erika")
-                Console.WriteLine("Klassens huvudstadsrepresentant tillika världsvana utlandsstudent hälsar dig med ett glatt 'Ohayō gozaimasu!'");
-            else if (Data.ClassMate == "Tobias")
-                Console.WriteLine("Det norrländska lugnet från den nu lika fullfjädrade bohuslänningen smittar av sig på dig. Det här blir en härlig dag!");
-            else if (Data.ClassMate == "Jonathan")
-                Console.WriteLine("Den klättrande kickboxarkillen som INTE har jobbat som lisebergskanin (yeah right!) hälsar dig morgonglatt!");
-            else if (Data.ClassMate == "Magnus")
-                Console.WriteLine("Magnus är redan i full gång med kodandet. Han håller på att utveckla något nytt operativsystem. Inget märkvärdigt alls.");
+                Console.WriteLine($"{Data.ClassMate} ber om ursäkt för kommande frågor och du tänker att de nog kommer snart.");
+            else if (Data.ClassMate == "Erika" || Data.ClassMate == "Erica" || Data.ClassMate == "Ericka")
+                Console.WriteLine($"Klassens huvudstadsrepresentant tillika världsvana utlandsstudent hälsar dig med ett glatt 'Ohayō gozaimasu!'");
+            else if (Data.ClassMate == "Tobias" || Data.ClassMate == "Tobbe" || Data.ClassMate == "Tobbias")
+                Console.WriteLine($"Det norrländska lugnet från den nu lika fullfjädrade bohuslänningen smittar av sig på dig. Det här blir en härlig dag!");
+            else if (Data.ClassMate == "Jonathan" || Data.ClassMate == "Jonatan")
+                Console.WriteLine($"Den klättrande kickboxarkillen som INTE har jobbat som lisebergskanin (yeah right!) hälsar dig morgonglatt!");
+            else if (Data.ClassMate == "Magnus" || Data.ClassMate == "Mange")
+                Console.WriteLine($"{Data.ClassMate} är redan i full gång med kodandet. Han håller på att utveckla något nytt operativsystem. Inget märkvärdigt alls.");
             else if (Data.ClassMate == "Heidi")
-                Console.WriteLine("Du tittar dig lite försiktigt omkring så att Heidis vapendragare Sara inte sitter och blänger på dig för att du tagit hennes givna plats.");
+                Console.WriteLine($"Du tittar dig lite försiktigt omkring så att {Data.ClassMate}s vapendragare Sara inte sitter och blänger på dig för att du tagit hennes givna plats.");
             else if (Data.ClassMate == "Olof")
-                Console.WriteLine("Olof ser lite butter ut och när du frågor honom om det muttrar han något om Tottenham och hur mycket fotboll suger ibland. ");
-            else if (Data.ClassMate == "Alexander")
-                Console.WriteLine("Alexander sitter i vanlig ordning med hörlurarna på och lyssnar på egenkomponerad blip-blop.");
+                Console.WriteLine($"{Data.ClassMate} ser lite butter ut och när du frågor honom om det muttrar han något om Tottenham och hur mycket fotboll suger ibland. ");
+            else if (Data.ClassMate == "Alexander" || Data.ClassMate == "Alex")
+                Console.WriteLine($"{Data.ClassMate} sitter i vanlig ordning med hörlurarna på och lyssnar på egenkomponerad blip-blop.");
 
+            Console.WriteLine();
+            Console.Write("Tryck på valfri knapp för att fortsätta");
             Console.ReadKey();
             Console.Clear();
 
             Console.WriteLine();
             Console.WriteLine("Dagen börjar i vanlig ordning med att Oscar kör en kort genomgång och att ingen, märkligt nog, har några frågor på kommande uppgift. ");
             Console.WriteLine($"I slutet av timmen avslutar Oscar med en kluring att återvända till efter rasten: ");
-            Console.WriteLine($"- Vilken variabeltyp är den sparsammaste vi kan använda?");
+            Console.WriteLine($"'Vilken variabeltyp är den sparsammaste vi kan använda?'");
             Console.WriteLine($"{Data.ClassMate} skruvar lite på sig. Hur tar du dig an kluringen? ");
             Console.WriteLine("1. Du kan svaret och tänker inte mer på det - dags för rast! ");
             Console.WriteLine($"2. Du börjar klura tillsammans med din vapendragare {Data.ClassMate} innan ni sticker på rast.");
-            Console.Write(">");
+            Console.Write("> ");
             svar = int.Parse(Console.ReadLine());
+            Console.WriteLine($"'Förresten {Data.Playername}', säger {Data.ClassMate}, 'kan du snälla påminna mig om min intervju jag har efter lunch?' ");
+            Console.WriteLine("'Absolut! Jag påminner dig sedan!");
 
             if (svar == 1)
             {
@@ -243,6 +242,9 @@ Console.WriteLine(title);
             }
             else
                 Data.Karma++;
+
+            Console.ReadKey();
+            Console.Clear();
 
             return svar;
         }
@@ -330,7 +332,7 @@ Console.WriteLine(title);
                         }
                     }
 
-                    
+
 
                     Console.Clear();
 
@@ -378,25 +380,25 @@ Console.WriteLine(title);
 
         private static int Classroom2(int value)
         {
-            int svar;
+            int svar = value;
             Console.WriteLine("Åter i klassrummet tittar Oscar finurligt och förväntansfullt ut mot klassen.");
-            Console.WriteLine($"- Är det någon som vågar gissa på min kluring? {Data.Playername} kanske? Vilken är den sparsammaste variabeln?");
+            Console.WriteLine($"'Är det någon som vågar gissa på min kluring? {Data.Playername} kanske? Vilken är den sparsammaste variabeln?'");
 
             if (value == 1)
             {
                 Console.WriteLine("1. Det sanna svaret är bool!");
                 Console.WriteLine("2. Decimal, de kan ju ha supersmå tal!");
                 Console.WriteLine("3. Eh, jag var helt säker på svaret men drabbades av minnesförlust under rasten...");
-                Console.Write(">");
-                svar = int.Parse(Console.ReadLine());
-                Console.WriteLine("Det var dessvärre fel, det otroligt roliga svaret är INTE-GER! Fattar ni? Hehehehe!");
+                Console.Write("> ");
+                Console.ReadLine();
+                Console.WriteLine("'Det var dessvärre fel, det otroligt roliga svaret är INTE-GER! Fattar ni? Hehehehe!'");
             }
 
             else
             {
                 Console.WriteLine("1. Yep! Helt på egen hand förstod jag att det var en ordvits! INTE-GER!");
                 Console.WriteLine($"2. Du är en rolig göbbe du! Jag och {Data.ClassMate} löste det tillsammans, det är ju en INTE-GER!");
-                Console.Write(">");
+                Console.Write("> ");
                 svar = int.Parse(Console.ReadLine());
                 Console.WriteLine("Helt korrekt fnissar Oscar! ");
                 if (svar == 1)
@@ -412,6 +414,11 @@ Console.WriteLine(title);
 
             }
 
+            Console.WriteLine();
+            Console.Write("Tryck på valfri knapp för att fortsätta");
+            Console.ReadKey();
+            Console.Clear();
+
             return svar;
         }
 
@@ -420,9 +427,119 @@ Console.WriteLine(title);
             throw new NotImplementedException();
         }
 
-        private static int Project(int value)
+        private static void Project()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Mätt som ett smäck är du nu tillbaks i klassrummet och det har blivit dags för klassen att dela in sig i projektgrupper. ");
+            Console.WriteLine("Lärar-Oscar har radat upp ett gäng projektidéer och du anmäler dig först av alla till att göra ett coolt MUD-spel!");
+
+            if (Data.Karma <= -2)
+            {
+                Console.WriteLine("Några 'klasskamrater' som först verkade lika taggade som du på MUD sänker sina händer och ångrar sig." );
+                Console.WriteLine("När hela klassen satt upp sig på olika projekt är du fortfarande ensam på ditt projekt... vad är det med folk!?");
+                Console.WriteLine("Till slut lyckas Oscar flytta över en klasskamrat från en annan överfull grupp, din något motvilliga projekt-kompis blir: ");
+            }
+
+            else if (Data.Karma >= -1 && Data.Karma < 2)
+            {
+                Console.WriteLine("När alla delat in sig i grupper har du en hyfsat motiverad projekt-kompis med dig i din grupp, det blev: ");
+            }
+
+            else
+            {
+                Console.WriteLine("Alla verkar vilja vara med i din grupp, det slutar med att Oscar får dela upp er i flera smågrupper. ");
+                Console.WriteLine("Till slut blir ni två personer i din grupp, din exalterade projekt-kompis blir: ");
+            }
+            Data.ProjectBuddy = Console.ReadLine();
+            Console.WriteLine();
+
+            Console.Write("Tryck på valfri knapp för att fortsätta");
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine($"Du och {Data.ProjectBuddy} letar upp ett fancy mötesrum som ni nog egentligen borde betalat för... men vad skulle kunna gå fel?");
+            Console.WriteLine("När ni suttit och skrivit ett tag märker du att det är rätt varmt i rummet och dålig ventilation. ");
+            Console.WriteLine("Vill du göra någonting åt det?");
+            Console.Write("1. Ja");
+            Console.Write("2. Nej, jag gillar värme och kass luft.");
+            int svar = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            if (svar == 1)
+            {
+                Console.WriteLine("Vad vill du göra åt det?");
+                Console.WriteLine();
+                if (Data.Jacket == true)
+                {
+                Console.WriteLine("1. Ta av dig jackan");
+                Console.WriteLine("2. Knappra på ventilationen med hjälp av meckapären på väggen");
+                Console.WriteLine("3. Tio armhävningar borde öka syreflödet");
+                int svar2 = int.Parse(Console.ReadLine());
+                    if (svar2 == 1)
+                    {
+                        Console.WriteLine("Du tar av dig jackan. Skönt, du frågar dig varför du inte tänkt på det tidigare?");
+                        Data.Warmth--;
+                    }
+                    else if (svar2 == 2)
+                    {
+                        Console.WriteLine("Med några simpla klick på väggapparaturen kickar ventilationen igång. Göttigt!");
+                        Data.Warmth--;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Du slänger dig ner på golvet och känner blodet pumpa runt i hela kroppen medan du göra din armhävningar.");
+                        Console.WriteLine($"{Data.ProjectBuddy} kollar förvirrat på dig och svimfärdig inser du att det kanske inte var din bästa idé i livet.");
+                        Data.Warmth += 2;
+                    }
+                }
+
+                else
+                {
+                    Console.WriteLine("1. Knappra på ventilationen med hjälp av meckapären på väggen");
+                    Console.WriteLine("2. Tio armhävningar borde öka syreflödet");
+                    int svar2 = int.Parse(Console.ReadLine());
+                    if (svar2 == 1)
+                    {
+                        Console.WriteLine("Med några simpla klick på väggapparaturen kickar ventilationen igång. Göttigt!");
+                        Data.Warmth--;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Du slänger dig ner på golvet och känner blodet pumpa runt i hela kroppen medan du göra din armhävningar.");
+                        Console.WriteLine($"{Data.ProjectBuddy} kollar förvirrat på dig och svimfärdig inser du att det kanske inte var din bästa idé i livet.");
+                        Data.Warmth += 2;
+                    }
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("Ooookej.... du fortsätter att andas in den bedrövliga luften och känner hur huvudet börjar dunka. Det har nog inget samband.");
+                Data.Warmth++;
+            }
+
+            Console.WriteLine();
+            Console.Write("Tryck på valfri knapp för att fortsätta");
+            Console.ReadKey();
+            Console.Clear();
+
+            Console.WriteLine($"Efter hårt arbete har det åter blivit dags för rast. När du tittar på {Data.ClassMate} i korridoren känns det som att du glömt någonting: ");
+            Console.WriteLine($"1. Du börjar prata med {Data.ClassMate} om serien du såg på Netflix igår kväll!");
+            Console.WriteLine($"2. Du påminner {Data.ClassMate} om att hen måste skynda sig till sin intervju!");
+            svar = int.Parse(Console.ReadLine());
+            if (svar == 1)
+            {
+                Data.Karma--;
+            }
+            else
+            {
+                Data.Karma++;
+            }
+
+            Console.WriteLine();
+            Console.Write("Tryck på valfri knapp för att fortsätta");
+            Console.ReadKey();
+            Console.Clear();
+
         }
 
         private static int Event(int value)
@@ -435,27 +552,157 @@ Console.WriteLine(title);
             throw new NotImplementedException();
         }
 
-        private static int Endgame(int value)
+        private static void Endgame(int value)
         {
-            throw new NotImplementedException();
+            int svar;
+            if (value == 1)
+            {
+                Console.WriteLine("Oscar samlar åter klassen för att avsluta dagen tillsammans i klassrummet.");
+                Console.WriteLine("'Det var härligt med lite luft! Hoppas det har gått bra med era projekt idag' säger Oscar.");
+
+                Console.WriteLine();
+                Console.Write("Tryck på valfri knapp för att fortsätta");
+                Console.ReadKey();
+                Console.Clear();
+
+                Console.WriteLine("'Det sista ni ska göra idag är att lösa en uppgift utan era datorer. Jag vill veta vilken output följande kod ger: '");
+                Console.WriteLine( @"int[] a = { 10, 20, 30, 40, 50, 80 };\n
+                Console.WriteLine(a[-1])");
+                Console.WriteLine();
+                Console.WriteLine("1. Den skriver ut 0");
+                Console.WriteLine("2. Den skriver ut -10");
+                Console.WriteLine("3. Den skriver ut 80");
+                Console.WriteLine("4. Ingenting, det blir en exception");
+                svar = int.Parse(Console.ReadLine());
+                if (svar != 4)
+                {
+                    Console.WriteLine("Fel! Rätt svar var att det blir en exception. Det finns inget minusvärde i arrayen.");
+                    Gameover();
+                }
+                else
+                {
+                    Console.WriteLine("Rätt svar! Härligt! Det finns inget minusvärde i arrayen, så det blir givetvis en exception.");
+                    Console.WriteLine();
+                    Console.WriteLine("Du har klarat Academud!");
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(@" /$$$$$$$$/ $$                                                  /$$");
+                    Console.WriteLine(@"|__  $$__/| $$                                                 | $$");
+                    Console.WriteLine(@"   | $$   | $$$$$$$   /$$$$$$         /$$$$$$   /$$$$$$$   /$$$$$$$");
+                    Console.WriteLine(@"   | $$   | $$__  $$ /$$__  $$       /$$__  $$ | $$__  $$ /$$__  $$");
+                    Console.WriteLine(@"   | $$   | $$  \ $$| $$$$$$$$      | $$$$$$$$ | $$  \ $$| $$  | $$");
+                    Console.WriteLine(@"   | $$   | $$  | $$| $$_____ /     | $$_____ /| $$  | $$| $$  | $$");
+                    Console.WriteLine(@"   | $$   | $$  | $$|  $$$$$$$      |  $$$$$$$ | $$  | $$|  $$$$$$$");
+                    Console.WriteLine(@"   |__/   |__/  |__/ \_______ /      \_______ /|__/  |__/ \_______/");
+
+                }
+            }
+
+            else
+            {
+                Console.WriteLine("Klassen samlas åter i klassrummet för att runda av dagen tillsammans.");
+                Console.WriteLine("Oscar kommer instormandes sist av alla och ser ut att vilja ha sönder någonting.");
+                Console.WriteLine("Lite bekymrat frågar du om det har hänt någonting.");
+                Console.WriteLine("'DET HADE FOLK VETAT OM IFALL NÅGON HADE FÖLJT MED MIG PÅ PROMENADEN!' gormar Oscar bestört.");
+                Console.WriteLine("Det visar sig att måsarna har varit framme igen. Den här gången har de norpat Oscars mössa.");
+                Console.WriteLine("'DET HADE ALDRIG HÄNT OM VI VARIT EN GRUPP!' menar Oscar sårat och kastar av sig jackan.");
+                Console.WriteLine("Oscar samlar sig under en stund innan han lugnt, men med något mörkt i blicken, fortsätter: ");
+                Console.WriteLine("'Vi ska avsluta dagen med en uppgift. Inga datorer tillåtna! Jag vill veta vad följande kod ger för output: '");
+
+                Console.WriteLine();
+                Console.Write("Tryck på valfri knapp för att fortsätta");
+                Console.ReadKey();
+                Console.Clear();
+
+                Console.WriteLine(@"char A = 'P';\n
+                char B = Convert.ToChar(76);\n
+                A++;\n
+                B++;\n
+                Console.WriteLine(A + '  ' + B);");
+                if (Data.Karma >= 3)
+                {
+                    Console.WriteLine("1. V R");
+                    Console.WriteLine("2. O K");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.Write("[Dialogval upplåst]");
+                    Console.ForegroundColor = ConsoleColor.Gray;
+                    Console.WriteLine("3. Q M ");
+
+                }
+
+                else if (Data.Karma >= 0 && Data.Karma < 3)
+                {
+                    Console.WriteLine("1. V R");
+                    Console.WriteLine("2. O K");
+                    Console.WriteLine("3. Q M");
+                    Console.WriteLine("4. A B76");
+                }
+                else
+                {
+                    Console.WriteLine("1. V R");
+                    Console.WriteLine("2. O K");
+                    Console.WriteLine("3. Q M");
+                    Console.WriteLine("4. A B76");
+                    Console.WriteLine("5. I E");
+                }
+
+                svar = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+                if (svar != 3)
+                {
+                    Console.WriteLine("Oscar skakar suckande på huvudet.");
+                    Console.WriteLine("'Med lite friskt syre i kroppen hade du kanske löst uppgiften.'");
+                    Gameover();
+                }
+                else
+                {
+                    Console.WriteLine("Oscar kollar förvånat på dig när du uppger korrekt svar.");
+                    Console.WriteLine("'Det var verkligen överraskande bra... ni lär er ju i en rasande takt!'");
+                    Console.WriteLine("'Kom ihåg karma, det är nyckeln till framgång här på Academud!'");
+                    Console.WriteLine();
+                    Console.WriteLine("Du har klarat Academud!");
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(@" /$$$$$$$$/ $$                                                  /$$");
+                    Console.WriteLine(@"|__  $$__/| $$                                                 | $$");
+                    Console.WriteLine(@"   | $$   | $$$$$$$   /$$$$$$         /$$$$$$   /$$$$$$$   /$$$$$$$");
+                    Console.WriteLine(@"   | $$   | $$__  $$ /$$__  $$       /$$__  $$ | $$__  $$ /$$__  $$");
+                    Console.WriteLine(@"   | $$   | $$  \ $$| $$$$$$$$      | $$$$$$$$ | $$  \ $$| $$  | $$");
+                    Console.WriteLine(@"   | $$   | $$  | $$| $$_____ /     | $$_____ /| $$  | $$| $$  | $$");
+                    Console.WriteLine(@"   | $$   | $$  | $$|  $$$$$$$      |  $$$$$$$ | $$  | $$|  $$$$$$$");
+                    Console.WriteLine(@"   |__/   |__/  |__/ \_______ /      \_______ /|__/  |__/ \_______/");
+                }
+
+            }
         }
-
-
-
-
 
         private static void Gameover()
         {
-            throw new NotImplementedException();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(@"  /$$$$$$                                                                                    /$$");
+            Console.WriteLine(@" /$$__  $$                                                                                  | $$");
+            Console.WriteLine(@"| $$  \__ /  /$$$$$$  /$$$$$$/$$$$   /$$$$$$         /$$$$$$  /$$    /$$ /$$$$$$    /$$$$$$ | $$");
+            Console.WriteLine(@"| $$ /$$$$ | ____  $$| $$_  $$_  $$ /$$__  $$       /$$__  $$|  $$  /$$//$$__  $$  /$$__  $$| $$");
+            Console.WriteLine(@"| $$| _  $$  /$$$$$$$| $$ \ $$ \ $$| $$$$$$$$      | $$  \ $$ \  $$/$$/| $$$$$$$$ | $$  \__/|__/");
+            Console.WriteLine(@"| $$  \ $$ /$$__  $$| $$ | $$ | $$| $$_____ /      | $$  | $$  \  $$$/ | $$_____/ | $$          ");
+            Console.WriteLine(@"|  $$$$$$/|  $$$$$$$| $$ | $$ | $$|  $$$$$$$       |  $$$$$$/   \  $/  |  $$$$$$$ | $$       /$$");
+            Console.WriteLine(@" \______/  \_______/|__/ |__/ |__/ \_______/        \______/     \_/    \_______/ |__/      |__/");
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Vill du spela igen?");
+            Console.WriteLine("1. Självklart vill jag spela det här fantastiska spelet igen!");
+            Console.WriteLine("2. Jag skulle hellre gå runt med TRE jackor INOMHUS en hel dag. Nej tack.");
+            int svar = int.Parse(Console.ReadLine());
+            if (svar == 1)
+            {
+                Startgame();
+            }
+            else if (svar == 2)
+            {
+                Environment.Exit(0);
+            }
+
         }
-
-
-
-
-
-
-
-
 
         private static string WriteoutTOS()
         {
