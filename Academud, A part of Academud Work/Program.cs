@@ -8,7 +8,7 @@ namespace Academud__A_part_of_Academud_Work
         {
 
 
-            for (int i = 0, j = 0; i < 20001; i++, j++)
+            for (int i = 0, j = 0; i < 1; i++, j++)
             {
                 
                 int top = Console.CursorTop;
@@ -19,25 +19,15 @@ namespace Academud__A_part_of_Academud_Work
             }
             Console.Clear();
 
-
+            
             int value = Startgame();
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine($"Karma: {Data.Karma}");
-            Console.WriteLine($"Värmenivå: {Data.Warmth}");
-            Console.WriteLine($"Rum Nr: {Data.Room}");
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.Gray;
             Reception(value);
-
-
-
             value = Classroom1();
             Break();
             value = Classroom2(value);
-            value = Lunch(value);
-            value = Project(value);
-            value = Event(value);
+            //value = Lunch(value);
+            //value = Project(value);
+            Event();
             value = Citystroll(value);
             value = Endgame(value);
 
@@ -48,7 +38,15 @@ namespace Academud__A_part_of_Academud_Work
 
         }
 
-
+        private static void Printstats()
+        {
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.WriteLine($"Academud                               Karma: {Data.Karma}                                Warmth: {Data.Warmth} ");
+           
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
 
         private static int Startgame()
         {
@@ -61,7 +59,7 @@ namespace Academud__A_part_of_Academud_Work
      ;MM:                            MM                                            MM  
     ,V^MM.    ,p6'bo   ,6'Yb.   ,M''bMM  .gP'Ya   MMpMMMb.pMMMb.  7M    7M    ,M''bMM
    ,M  `MM   6M'  OO  8)   MM ,AP    MM ,M'   Yb  MM    MM    MM  MM    AM  MM     MM
-   mmmq  MA  8M      ,pm   8MI MM    8M 'm MM MM  MM    MM    MM  8M    MM  MM     MM
+   mmmq  MA  8M      ,pm   8M  MM    8M 'm MM MM  MM    MM    MM  8M    MM  MM     MM
   A'     VML YM.    , 8M   MM `Mb    MM YM.    ,  MM    MM    MM  MM    MM  `Mb    MM  
 .AMA.   .AMMA.YMbmd'  `Moo9^Yo.`Wbmd'MML `Mbmmd'  MML   MML   MML  Mbod'YML.   Wmd'MML";           
 Console.WriteLine(title);
@@ -74,7 +72,8 @@ Console.WriteLine(title);
             Console.ReadKey();
 
             Console.Clear();
-
+            Data.Room = "Startup";
+            Printstats();
 
 
             Console.Write("Det är en vanlig dag i innerstaden Göteborg, det regnar snett underifrån och du befinner dig utanför Östra Hamngatan 16.");
@@ -82,7 +81,7 @@ Console.WriteLine(title);
             Console.WriteLine("1. Ring upp till receptionen via porttelefonen.");
             Console.WriteLine("2. Stå och vänta i regnet på att någon skall släppa in dig, gud va pinsamt.");
             Console.WriteLine("3. Installera ParaKey-appen på din allt för gamla smartphone med risk för vattenskada pga regnet.\n");
-            Console.WriteLine("Ditt val: ");
+            Console.WriteLine(">");
             int svar = int.Parse(Console.ReadLine());
 
 
@@ -94,21 +93,23 @@ Console.WriteLine(title);
 
         private static void Reception(int value)
         {
+            Data.Room = "Receptionen";
             Console.Clear();
-
+            Printstats();
             if (value == 1)
             {
                 Console.WriteLine("*Ring* *Ring* Detta är United Spaces du pratar med Eva.\n");
                 Console.WriteLine("Du svarar: ");
                 Console.WriteLine("1. Jag jobbar för Academud!");
-                Console.WriteLine("2. Släpp in mig jag är 2 minuter sen");
+                Console.WriteLine("2. Släpp in mig jag är 2 minuter sen.");
                 Console.WriteLine("3. En falafel stal min måsrulle!");
-                Console.WriteLine("Ditt val: ");
+                Console.WriteLine(">");
 
                 int svar2 = int.Parse(Console.ReadLine());
                 if (svar2 == 1 || svar2 == 2 || svar2 == 3)
                 {
                     Console.Clear();
+                    Printstats();
                     Console.WriteLine("'Och hur var namnet?' Frågar Eva. \n");
                     Console.Write("- Mitt namn är ");
                     Data.Playername = Console.ReadLine();
@@ -119,17 +120,17 @@ Console.WriteLine(title);
             {
                 Console.WriteLine("Du står i regnet och väntar ivrigt på att någon skall öppna den nedrans dörren.");
                 Console.WriteLine("En äldre herre dyker upp från tomma intet och brister ut 'Dig har jag aldrig sett här förr, vad heter du?\n ");
-                Console.Write("- Mitt namn är ");
+                Console.Write("Mitt namn är ");
                 Data.Playername = Console.ReadLine();
-                Console.WriteLine("Ah nej jag pratade inte med dig säger herren och går vidare.");
+                Console.WriteLine("- Ah nej jag pratade inte med dig säger herren och går vidare.");
                 Console.ReadKey();
 
             }
             if (value == 3)
             {
                 string tos;
-                Console.WriteLine("Jag tar fram min telefon, en IPhone vars batteri håller på att ta slut fastän jag laddade den hela natten.");
-                Console.WriteLine("Appstore ber mig att acceptera deras nya ToS.\n");
+                Console.WriteLine("Du tar fram din telefon, en IPhone vars batteri håller på att ta slut fastän jag laddade den hela natten.");
+                Console.WriteLine("Appstore ber dig att acceptera deras nya ToS.\n");
                 Console.WriteLine("Vill du läsa hela Appstores ToS? (y/n)");
                 tos = Console.ReadLine();
                 string tos2 = tos.Trim().ToLower();
@@ -141,8 +142,9 @@ Console.WriteLine(title);
 
                 }
                 Console.Clear();
+                Printstats();
                 Console.WriteLine("Du accepterar snällt Apples nya ToS och installerar ParaKey.");
-                Console.WriteLine("Nu har du installerat ParaKey-appen och appen dig om ett namn.\n");
+                Console.WriteLine("Nu har du installerat ParaKey-appen och appen ber dig om ett namn.\n");
                 Console.Write("Mitt namn är ");
                 Data.Playername = Console.ReadLine();
                 Console.WriteLine("Appen svarar snällt tillbaka att du är välkommen in.");
@@ -151,34 +153,71 @@ Console.WriteLine(title);
 
 
             Console.Clear();
+            Printstats();
             Console.WriteLine("Väl uppe i receptionen känner du doften av kaffe och vill genast hämta en kopp.");
             Console.WriteLine("'Oj, jag kanske borde hänga av mig jackan först' Tänker du.");
-            Console.WriteLine("Vill du hänga av dig jackan? (y/n)");
+            Console.WriteLine("\nVill du hänga av dig jackan?");
+            Console.WriteLine("1. Ja");
+            Console.WriteLine("2. Nej");
             string jacka = Console.ReadLine();
             string jackasvar = jacka.Trim().ToLower();
-            if (jackasvar == "y")
+            if (jackasvar == "1")
             {
                 Console.Clear();
+                Printstats();
                 Console.WriteLine("Du går och hänger av dig jackan, 'skönt' tänker du då det är väldigt varmt här inne.");
                 Data.Warmth = 0;
+                Data.Jacket = false;
+                Console.ReadKey();
+                Console.Clear();
+                Printstats();
             }
-            if (jackasvar == "n")
+            if (jackasvar == "2")
             {
                 Console.Clear();
+                Printstats();
                 Console.WriteLine("Med jackan på rusar du genast till kaffemaskinen. 'Herregud va varmt det är.' tänker du.");
                 Data.Warmth = 1;
-                Console.WriteLine($"Din värmenivå är nu: {Data.Warmth}");
-                
+                Data.Jacket = true;
+               
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"\nDin värmenivå har ökat.");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.ReadKey();
+                Console.Clear();
+                Printstats();
+            }
+
+            if (Data.Warmth == 1)
+            {
+                Console.WriteLine("Halvvägs till klassrummet kommer du på att du glömt vilken dag det är.");
+            }
+            else
+            {
+                Console.WriteLine("På väg mot klassrummet så funderar du på vad som kommer att hända idag.");
+                Console.WriteLine("Detta kan vara svårt iom. att du inte vet vilken dag det är.\n");
+            }
+
+            Console.WriteLine("Du kollar på din kalender och ser att idag är en:\n ");
+            Console.WriteLine("1. Måndag");
+            Console.WriteLine("2. Onsdag");
+            Console.Write(">");
+            int dagsval = int.Parse(Console.ReadLine());
+            if (dagsval == 1)
+            {
+                Data.Day = "måndag";
+            }
+            else 
+            {
+                Data.Day = "onsdag";
             }
 
 
-
-
-
-            //Kalla Jacketon(); om användare väljer att ej hänga av sig jackan.  (Data.Warmth är värdet för hettan)
         }
         private static int Classroom1()
         {
+            Console.Clear();
+            Printstats();
             int svar;
             Console.WriteLine("Du traskar in till BEIJING 1 och slår dig ner vid ett av de rosenröda skrivborden.");
             Console.Write("Bredvid dig sitter: ");
@@ -230,13 +269,13 @@ Console.WriteLine(title);
             Console.WriteLine();
             Console.WriteLine("Dagen börjar i vanlig ordning med att Oscar kör en kort genomgång och att ingen, märkligt nog, har några frågor på kommande uppgift. ");
             Console.WriteLine($"I slutet av timmen avslutar Oscar med en kluring att återvända till efter rasten: ");
-            Console.WriteLine($"- Vilken variabeltyp är den sparsammaste vi kan använda?");
+            Console.WriteLine($"- Vilken variabeltyp är den sparsammaste vi kan använda?\n");
             Console.WriteLine($"{Data.ClassMate} skruvar lite på sig. Hur tar du dig an kluringen? ");
-            Console.WriteLine("1. Du kan svaret och tänker inte mer på det - dags för rast! ");
+            Console.WriteLine("\n1. Du kan svaret och tänker inte mer på det - dags för rast! ");
             Console.WriteLine($"2. Du börjar klura tillsammans med din vapendragare {Data.ClassMate} innan ni sticker på rast.");
             Console.Write(">");
             svar = int.Parse(Console.ReadLine());
-
+            Console.Clear();
             if (svar == 1)
             {
                 Data.Karma--;
@@ -279,7 +318,9 @@ Console.WriteLine(title);
                     {
                         Console.WriteLine("Nu spelar du alltså pingis med jackan på. Svetten rinner, du luktar och är långt ifrån 'Business Casual'. Korkat.");
                         Data.Warmth++;
-                        Console.WriteLine($"Din värmenivå är nu: {Data.Warmth}");
+                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.WriteLine($"Din värmenivå har ökats.");
+                        Console.ForegroundColor = ConsoleColor.Gray;
                         Console.ReadKey();
                         Console.Clear();
 
@@ -403,33 +444,122 @@ Console.WriteLine(title);
                 {
                     Console.WriteLine($"{Data.ClassMate} ger dig en kylig blick och du skäms lite för att du tog åt dig äran själv.");
                     Data.Karma--;
+                    Console.ReadLine();
                 }
                 else
                 {
                     Console.WriteLine($"{Data.ClassMate} ger dig en high five och du tänker att det är jäkla käckt med peer-to-peer!");
                     Data.Karma++;
+                    Console.ReadLine();
                 }
-
+                
             }
 
             return svar;
         }
 
-        private static int Lunch(int value)
-        {
-            throw new NotImplementedException();
-        }
+        //private static int Lunch(int value)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        private static int Project(int value)
-        {
-            throw new NotImplementedException();
-        }
+        //private static int Project(int value)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        private static int Event(int value)
+        private static void Event()
         {
-            throw new NotImplementedException();
-        }
+            string dagsevent;
+           
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine("Klockan slog precis över till 14.00 och du grubblar över vad United Spaces bjuder på idag.");
+            if (Data.Day == "måndag")
+            {
+                Console.WriteLine($"Det slår dig att det är {Data.Day} och det bjuds på fruitbowl i receptionen" );
+                Console.WriteLine("'Frukt, hur kul e de?' Tänker du för dig själv.");
+                dagsevent = "fruitbowl";
+            }
+            else
+            {
+                
+                Console.WriteLine($"Det slår dig att det är {Data.Day} och att det är Sugar Rush i receptionen");
+                dagsevent = "sugar rush";
+                
 
+            }
+
+        
+            Random r = new Random();
+
+            int val = r.Next(1, 100);
+            int guess = 0;
+            bool correct = false;
+
+            Console.WriteLine("Du stöter på Eva vid receptionen som säger");
+            Console.WriteLine($"\n-För att få ta del av {dagsevent}en så måste du gissa rätt nummer (Mellan 1-100)");
+
+            while (!correct)
+            {
+                Console.Write("Gissning: ");
+                string input = Console.ReadLine();
+
+                if (!int.TryParse(input, out guess))
+                {
+                    Console.WriteLine("That's not a number.");
+                    continue;
+                }
+
+                if (guess < val)
+                {
+                    Console.WriteLine($"-Nix, siffran Eva tänker på är högre än: {guess}.  Kom igen nu {Data.Playername}.");
+                }
+                else if (guess > val)
+                {
+                    Console.WriteLine($"-Lägre än {guess} kan du!");
+                }
+                else
+                {
+                    correct = true;
+                    Console.WriteLine($"-Bra jobbat {Data.Playername}, rätt svar var: {val}.");
+                }
+                
+            }
+            Console.ReadLine();
+            Console.Clear();
+            Console.WriteLine($"{Data.ClassMate} ber dig hämta godis till er båda, vad gör du?\n");
+            
+            Console.WriteLine($"1. Hämta godis så att det räcker till både dig och {Data.ClassMate}.");
+            Console.WriteLine($"2. {Data.ClassMate} kan gott få hämta sitt godis själv, tänker du.");
+            if (Data.Jacket == true)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.Write("[Dialogval upplåst] ");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine("3. Med tanke på att du fortfarande har jackan på dig så bestämmer du dig för att inte hämta godis alls och istället hänga av dig jackan.");
+            }
+            
+            int svar = int.Parse(Console.ReadLine());
+
+            if (svar == 1)
+            {
+                Data.Karma++;
+            }
+            else if (svar == 3)
+            {
+                Data.Warmth--;
+                Data.Karma--;
+                Data.Karma--;
+
+            }
+            else
+            {
+                Data.Karma--;
+            }
+          
+        }
+        
         private static int Citystroll(int value)
         {
             throw new NotImplementedException();
@@ -465,3 +595,6 @@ Console.WriteLine(title);
         }
     }
 }
+
+
+
