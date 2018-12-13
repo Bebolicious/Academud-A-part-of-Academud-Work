@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 using System.Collections.Generic;
 
 namespace Academud__A_part_of_Academud_Work
@@ -18,9 +19,9 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine("BOOTING UP ACADEMUD : {0}%", i, j);
 
             }
-            Console.Clear(); 
+            Console.Clear();
+            WriteLine("hej");
 
-            
             int value = Startgame();
             Reception(value);
              value = Classroom1();
