@@ -68,7 +68,7 @@ namespace Academud__A_part_of_Academud_Work
             Console.ForegroundColor = ConsoleColor.Gray;
 
             Console.Write("\n'Här tror vi på ett growth mudset.'");
-            Console.WriteLine("\n\nKlicka på valfri knapp för att börja spela");
+            Console.WriteLine("\n\nKlicka på valfri knapp för att börja spela");        
             Console.ReadKey();
 
 
@@ -82,7 +82,7 @@ namespace Academud__A_part_of_Academud_Work
             Console.WriteLine("1. Ring upp till receptionen via porttelefonen.");
             Console.WriteLine("2. Stå och vänta i regnet på att någon skall släppa in dig, gud va pinsamt.");
             Console.WriteLine("3. Installera ParaKey-appen på din allt för gamla smartphone med risk för vattenskada pga regnet.\n");
-            Console.WriteLine(">");
+            Console.WriteLine(">");                                   // Finlira format av input
             int svar = int.Parse(Console.ReadLine());
 
 
@@ -104,7 +104,7 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine("1. Jag jobbar för Academud!");
                 Console.WriteLine("2. Släpp in mig jag är 2 minuter sen.");
                 Console.WriteLine("3. En falafel stal min måsrulle!");
-                Console.WriteLine(">");
+                Console.WriteLine(">");                   // Finlira format av input
 
                 int svar2 = int.Parse(Console.ReadLine());
                 if (svar2 == 1 || svar2 == 2 || svar2 == 3)
@@ -114,7 +114,7 @@ namespace Academud__A_part_of_Academud_Work
                     Console.WriteLine("'Och hur var namnet?' Frågar Eva. \n");
                     Console.Write("- Mitt namn är ");
                     Data.Playername = Console.ReadLine();
-                    Console.WriteLine("Tack, du är välkommen in! ");
+                    Console.WriteLine("Tack, du är välkommen in! ");   // Finlira format av input
                 }
             }
             if (value == 2)
@@ -124,7 +124,7 @@ namespace Academud__A_part_of_Academud_Work
                 Console.Write("Mitt namn är ");
                 Data.Playername = Console.ReadLine();
                 Console.WriteLine("- Ah nej jag pratade inte med dig säger herren och går vidare.");
-                Console.ReadKey();
+                Console.ReadKey();                                   // Finlira format av input
 
             }
             if (value == 3)
@@ -149,7 +149,7 @@ namespace Academud__A_part_of_Academud_Work
                 Console.Write("Mitt namn är ");
                 Data.Playername = Console.ReadLine();
                 Console.WriteLine("Appen svarar snällt tillbaka att du är välkommen in.");
-                Console.ReadKey();
+                Console.ReadKey();                                 // Finlira format av input
             }
 
 
@@ -159,11 +159,11 @@ namespace Academud__A_part_of_Academud_Work
             Console.WriteLine("'Oj, jag kanske borde hänga av mig jackan först' Tänker du.");
             Console.WriteLine("\nVill du hänga av dig jackan?");
             Console.WriteLine("1. Ja");
-            Console.WriteLine("2. Nej");
+            Console.WriteLine("2. Nej");                            // Finlira format av input
             string jacka = Console.ReadLine();
             string jackasvar = jacka.Trim().ToLower();
             if (jackasvar == "1")
-            {
+            { 
                 Console.Clear();
                 Printstats();
                 Console.WriteLine("Du går och hänger av dig jackan, 'skönt' tänker du då det är väldigt varmt här inne.");
@@ -176,13 +176,13 @@ namespace Academud__A_part_of_Academud_Work
             if (jackasvar == "2")
             {
                 Console.Clear();
-                Printstats();
+                Printstats(); 
                 Console.WriteLine("Med jackan på rusar du genast till kaffemaskinen. 'Herregud va varmt det är.' tänker du.");
                 Data.Warmth = 1;
                 Data.Jacket = true;
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"\nDin värmenivå har ökat.");
+                Console.WriteLine($"\nDin värmenivå har ökat.");            // Finlira format av input
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.ReadKey();
                 Console.Clear();
@@ -201,7 +201,7 @@ namespace Academud__A_part_of_Academud_Work
 
             Console.WriteLine("Du kollar på din kalender och ser att idag är en:\n ");
             Console.WriteLine("1. Måndag");
-            Console.WriteLine("2. Onsdag");
+            Console.WriteLine("2. Onsdag");                                 // finlir på texten
             Console.Write(">");
             int dagsval = int.Parse(Console.ReadLine());
             if (dagsval == 1)
@@ -267,7 +267,7 @@ namespace Academud__A_part_of_Academud_Work
             
             Console.ReadKey();
             Console.Clear();
-
+                                                          // Printstats(); skall in här, samt finlir på texten
             Console.WriteLine();
             Console.WriteLine("Dagen börjar i vanlig ordning med att Oscar kör en kort genomgång och att ingen, märkligt nog, har några frågor på kommande uppgift. ");
             Console.WriteLine($"I slutet av timmen avslutar Oscar med en kluring att återvända till efter rasten: ");
@@ -275,7 +275,7 @@ namespace Academud__A_part_of_Academud_Work
             Console.WriteLine($"{Data.ClassMate} skruvar lite på sig. Hur tar du dig an kluringen? ");
             Console.WriteLine("\n1. Du kan svaret och tänker inte mer på det - dags för rast! ");
             Console.WriteLine($"2. Du börjar klura tillsammans med din vapendragare {Data.ClassMate} innan ni sticker på rast.");
-            Console.Write("> ");
+            Console.Write("> ");                           // Printstats(); skall in här, samt finlir på texten
             svar = int.Parse(Console.ReadLine());
             Console.WriteLine($"'Förresten {Data.Playername}', säger {Data.ClassMate}, 'kan du snälla påminna mig om min intervju jag har efter lunch?' ");
             Console.WriteLine("'Absolut! Jag påminner dig sedan!");
@@ -289,7 +289,7 @@ namespace Academud__A_part_of_Academud_Work
 
             Console.ReadKey();
             Console.Clear();
-
+                                                    // Printstats(); skall in här, samt finlir på texten
             return svar;
         }
 
@@ -320,7 +320,7 @@ namespace Academud__A_part_of_Academud_Work
                 int svar = int.Parse(Console.ReadLine());
 
                 Console.Clear();
-
+                                                                  // Printstats(); skall in här, samt finlir på texten
 
                 if (svar == 1)
                 {
@@ -333,7 +333,7 @@ namespace Academud__A_part_of_Academud_Work
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.ReadKey();
                         Console.Clear();
-
+                                                                  // Printstats(); skall in här
                     }
 
 
@@ -352,7 +352,7 @@ namespace Academud__A_part_of_Academud_Work
                     }
 
                     Console.Clear();
-
+                                                          // Printstats(); skall in här, samt finlir på texten
                     if (counter == 8)
                     {
                         Console.WriteLine($"WOHO! Grattis till vinsten. Du krossa {Data.ClassMate}!");
@@ -366,7 +366,7 @@ namespace Academud__A_part_of_Academud_Work
                         Console.ReadKey();
                         Console.Clear();
 
-
+                                                  // Printstats(); skall in här, samt finlir på texten
                         if (svarVinnare == 1)
                         {
                             Console.WriteLine("Du skakar hand och öser beröm över din motståndare! Vilket spel! Glatt traskar ni arm i arm tillbaka till klassrummet.\n");
@@ -397,8 +397,8 @@ namespace Academud__A_part_of_Academud_Work
                         Console.ReadKey();
                         Console.Clear();
 
+                                                      // Printstats(); skall in här, samt finlir på texten
 
-                        Console.Clear();
 
                         if (svarFörlorare == 1)
                         {
@@ -420,7 +420,7 @@ namespace Academud__A_part_of_Academud_Work
 
 
                     Console.Clear();
-
+                                                        // Printstats(); skall in här, samt finlir på texten
                     break;
                 }
 
@@ -445,7 +445,7 @@ namespace Academud__A_part_of_Academud_Work
 
                     Console.ReadKey();
                     Console.Clear();
-
+                                                                // Printstats(); skall in här, samt finlir på texten
                     break;
                 }
 
@@ -505,7 +505,7 @@ namespace Academud__A_part_of_Academud_Work
             Console.Write("Tryck på valfri knapp för att fortsätta");
             Console.ReadKey();
             Console.Clear();
-
+                                                     // Printstats(); skall in här, samt finlir på texten
             return svar;
         }
 
@@ -520,7 +520,7 @@ namespace Academud__A_part_of_Academud_Work
             Console.WriteLine();
             Console.WriteLine("Tryck på valfri knapp för att fortsätt");
             Console.ReadKey();
-            Console.Clear();
+            Console.Clear();                                        // Printstats(); skall in här, samt finlir på texten
 
             if (value <= 1)
             {
@@ -553,7 +553,7 @@ namespace Academud__A_part_of_Academud_Work
             Console.WriteLine("Ditt val: ");
             int svarFundering = int.Parse(Console.ReadLine());
             Console.ReadKey();
-            Console.Clear();
+            Console.Clear();                                           // Printstats(); skall in här, samt finlir på texten
 
             if (svarFundering <= 1)
             {
@@ -578,34 +578,34 @@ namespace Academud__A_part_of_Academud_Work
                 Console.Write("Ditt val: ");
                 int svarTest = int.Parse(Console.ReadLine());
 
-                if (svarTest == 1)
+                if (svarTest == 1)                                                      
                 {
                     poäng++;
                 }
 
                 Console.Clear();
-            }
+            }                                               // Printstats(); skall in här, samt eventuellt ha mer context i frågorna ("frågar dig ***" 
 
             if (poäng > 2)
             {
                 Console.WriteLine("'Bra jobbat! Nu är du redo att ta dig an IT-branchen!'");
                 Console.ReadKey();
                 Console.Clear();
-            }
+            }                                                          // Printstats(); skall in här, läs ovan
             else
             {
 
                 Console.WriteLine("'Nja, detta får du nog titta på i helgen!'");
                 Console.ReadKey();
                 Console.Clear();
-            }
+            }                                                             // Printstats(); skall in här, läs ovan
 
             Console.WriteLine("'Tack för lunchen! Nu tror jag minsann det är dags för projektarbete!'");
             Console.WriteLine();
             Console.WriteLine("Tryck på valfri knapp för att fortsätta");
             Console.ReadKey();
             Console.Clear();
-
+                                                               // Printstats(); skall in här, läs ovan
         }
 
 
@@ -638,7 +638,7 @@ namespace Academud__A_part_of_Academud_Work
 
             Console.Write("Tryck på valfri knapp för att fortsätta");
             Console.ReadKey();
-            Console.Clear();
+            Console.Clear();                                       // Printstats(); skall in här, samt finlir på texten
 
             Console.WriteLine($"Du och {Data.ProjectBuddy} letar upp ett fancy mötesrum som ni nog egentligen borde betalat för... men vad skulle kunna gå fel?");
             Console.WriteLine("När ni suttit och skrivit ett tag märker du att det är rätt varmt i rummet och dålig ventilation. ");
@@ -704,7 +704,7 @@ namespace Academud__A_part_of_Academud_Work
             Console.WriteLine();
             Console.Write("Tryck på valfri knapp för att fortsätta");
             Console.ReadKey();
-            Console.Clear();
+            Console.Clear();                                                  // Printstats(); skall in här, samt finlir på texten
 
             Console.WriteLine($"Efter hårt arbete har det åter blivit dags för rast. När du tittar på {Data.ClassMate} i korridoren känns det som att du glömt någonting: ");
             Console.WriteLine($"1. Du börjar prata med {Data.ClassMate} om serien du såg på Netflix igår kväll!");
@@ -722,7 +722,7 @@ namespace Academud__A_part_of_Academud_Work
             Console.WriteLine();
             Console.Write("Tryck på valfri knapp för att fortsätta");
             Console.ReadKey();
-            Console.Clear();
+            Console.Clear();                                                             // Printstats(); skall in här, samt finlir på texten
 
         }
 
@@ -731,7 +731,7 @@ namespace Academud__A_part_of_Academud_Work
             string dagsevent;
 
             Console.Clear();
-            Console.WriteLine();
+            Console.WriteLine();                                              // Printstats(); skall in här, samt finlir på texten
             Console.WriteLine("Klockan slog precis över till 14.00 och du grubblar över vad United Spaces bjuder på idag.");
             if (Data.Day == "måndag")
             {
