@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Academud__A_part_of_Academud_Work
 {
@@ -17,16 +18,16 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine("BOOTING UP ACADEMUD : {0}%", i, j);
 
             }
-            Console.Clear();
+            Console.Clear(); 
 
             
             int value = Startgame();
             Reception(value);
-            value = Classroom1();
+             value = Classroom1();
             Break();
             value = Classroom2(value);
-            //value = Lunch(value);
-            //value = Project(value);
+            Lunch(value);
+            Project();
             Event();
             value = Citystroll(value);
             value = Endgame(value);
@@ -37,6 +38,8 @@ namespace Academud__A_part_of_Academud_Work
             Gameover();
 
         }
+
+       
 
         private static void Printstats()
         {
@@ -288,6 +291,9 @@ Console.WriteLine(title);
 
         private static void Break()
         {
+
+            Data.Room = "Rast";
+
             Console.WriteLine($"Så många val! Vad vill du göra på rasten?");
             Console.WriteLine();
             Console.Write("1. Pingis! Rundpingis! Massa pingis! ");
@@ -346,15 +352,18 @@ Console.WriteLine(title);
                     if (counter == 8)
                     {
                         Console.WriteLine($"WOHO! Grattis till vinsten. Du krossa {Data.ClassMate}!");
-                    }
-
-                    else
-                    {
-                        Console.WriteLine($"NEJ! {Data.ClassMate} krossa dig! Nyligen klådd - kan du samla dig och vara en bra förlorare? (y/n)");
-                        string svarFörlorare = Console.ReadLine();
+                        Console.WriteLine("Med stoltheten pumpande i bröstet - kan du samla dig och vara en bra vinnare? (y/n)?");
+                        Console.WriteLine();
+                        Console.WriteLine("1. Självfallet!");
+                        Console.WriteLine("2. Nejnejnej, pingis är på är på liv och död!");
+                        Console.WriteLine();
+                        Console.WriteLine("Ditt val: ");
+                        int svarVinnare = int.Parse(Console.ReadLine());
+                        Console.ReadKey();
                         Console.Clear();
 
-                        if (svarFörlorare == "y")
+
+                        if (svarVinnare == 1)
                         {
                             Console.WriteLine("Du skakar hand och öser beröm över din motståndare! Vilket spel! Glatt traskar ni arm i arm tillbaka till klassrummet.\n");
                             Data.Karma++;
@@ -363,15 +372,46 @@ Console.WriteLine(title);
                         }
                         else
                         {
-                            Console.WriteLine("Besvikelsen går inte att kontrollera! Du slår racket i bordet och ropar ett par mindre väl valda svordomar. Usch så pinsamt att förstöra stämningen nu när ni ska tillbaka till klassrummet.\n");
+                            Console.WriteLine("Du slänger dig upp på bordet skrålandes 'Segern är MIN, segern är MIN!!!");
+                            Console.WriteLine($"Glad i hågen klappar du {Data.ClassMate} på huvudet med orden 'Bättre lycka nästa gång - SUCKER!'");
                             Data.Karma--;
                             Console.WriteLine($"Din Karma-nivå är nu: {Data.Karma}");
                             Console.ReadKey();
-
                         }
                     }
 
-                    
+                    else
+                    {
+                        Console.WriteLine($"NEJ! {Data.ClassMate} krossa dig!");
+                        Console.WriteLine("Nyligen klådd - kan du samla dig och vara en bra förlorare?");
+                        Console.WriteLine();
+                        Console.WriteLine("1. Självfallet!");
+                        Console.WriteLine("2. Nejnejnej, pingis är på liv och död!");
+                        Console.WriteLine();
+                        Console.WriteLine("Ditt val: ");
+                        int svarFörlorare = int.Parse(Console.ReadLine());
+                        Console.ReadKey();
+                        Console.Clear();
+
+
+                        Console.Clear();
+
+                        if (svarFörlorare == 1)
+                        {
+                            Console.WriteLine("Du skakar hand och öser beröm över din motståndare! Vilket spel! Glatt traskar ni arm i arm tillbaka till klassrummet.\n");
+                            Data.Karma++;
+                            Console.WriteLine($"Din Karma-nivå är nu: {Data.Karma}");
+                            Console.ReadKey();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Besvikelsen går inte att kontrollera! Du slår racket i bordet och ropar ett par mindre väl valda svordomar.");
+                            Console.WriteLine(" Usch så pinsamt att förstöra stämningen nu när ni ska tillbaka till klassrummet.\n");
+                            Data.Karma--;
+                            Console.WriteLine($"Din Karma-nivå är nu: {Data.Karma}");
+                            Console.ReadKey();
+                        }
+                    }
 
                     Console.Clear();
 
@@ -395,7 +435,7 @@ Console.WriteLine(title);
                     } while (input != password);
 
                     Console.WriteLine();
-                    Console.WriteLine("Äntligen klar! Och där tog rasten är slut.......jahopp.");
+                    Console.WriteLine("Äntligen klar! Och samtidigt tog rasten är slut.......jahopp.");
 
                     Console.ReadKey();
                     Console.Clear();
@@ -458,17 +498,110 @@ Console.WriteLine(title);
             return svar;
         }
 
-        //private static int Lunch(int value)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        private static void Lunch(int value)
+        { 
+            Data.Room = "Lunch";
 
-        //private static int Project(int value)
-        //{
-        //    throw new NotImplementedException();
-        //}
+            Console.WriteLine("Du tittar upp precis när Songül kommer in i klassrummet");
+            Console.WriteLine("'Hej allihop, alltså SÅ HIMLA roligt att vara här hos er! Nu blir det lunch med oss från Academud Work!");
 
-        private static void Event()
+            Console.WriteLine();
+            Console.WriteLine("Tryck på valfri knapp för att fortsätt");
+            Console.ReadKey();
+            Console.Clear();
+
+            if (value <= 1)
+            {
+                Console.WriteLine($"{Data.ClassMate} har, helt rimligt, ingen lust att sitta bredvid dig på lunchen");
+                Console.ReadKey();
+                Console.WriteLine();
+                Console.WriteLine("Du får sitta ensam och skamsen med din sallad tills Songül förbarmar sig över dig");
+            }
+            else
+            {
+                Console.WriteLine($"Glada i hågen sätter ni er tillsammmans, du och {Data.ClassMate}");
+                Console.ReadKey();
+                Console.WriteLine();
+                Console.WriteLine("Songül delar ut era sallader och slår sig ner");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Hon vänder sig till dig 'Har du någon fundering såhär långt?'");
+            Console.WriteLine();
+
+            Console.WriteLine("1. Nej, jag är fullärd!");
+            Console.WriteLine("2. Nej .....(men jag kommer fråga massor sen på mail)");
+            if (Data.Jacket == true)
+            {
+                Console.WriteLine("3. Nej, men jag skulle vilja ta av mig jackan ändå. Det är ju inte speciellt konsultmässigt att att jag har den på!");
+                Data.Jacket = false;
+                Data.Warmth++;
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Ditt val: ");
+            int svarFundering = int.Parse(Console.ReadLine());
+            Console.ReadKey();
+            Console.Clear();
+
+            if (svarFundering <= 1 )
+            {
+                Console.WriteLine($"'Ingen är fullärd! Growth mudset är viktigt, {Data.Playername}!'");
+            }
+            else
+            {
+                Console.WriteLine($"'Okej, men Growth mudset är viktigt, {Data.Playername}!'");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("'Så nu blir det en litet kunskapstest om jobbsök via Academud!'");
+
+            string[] frågor1 = new string[] { "Vad är mycket mycket viktigt?\n 1. Positivt mudset\n 2. Negativt mudset", "Vilken nivå ska du kolla?\n 1. Erfarenhetsnivån\n 2. Havsnivån", "Vad kallar vi Cinode för också?\n 1. Academud-CV\n 2. Epic-CV", "Vad är du anställd som?\n 1. Ambulerande tjänsteman\n 2. IT-konsult" };
+
+            int poäng = 0;
+
+            foreach (var item in frågor1)
+            {
+                Console.WriteLine(item);
+                Console.WriteLine();
+                Console.Write("Ditt val: ");
+                int svarTest= int.Parse(Console.ReadLine());
+
+                if (svarTest == 1)
+                {
+                    poäng++;
+                }
+
+                Console.Clear();
+            }
+
+            if (poäng > 2)
+            {
+                Console.WriteLine("'Bra jobbat! Nu är du redo att ta dig an IT-branchen!'");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else
+            {
+
+                Console.WriteLine("'Nja, detta får du nog titta på i helgen!'");
+                Console.ReadKey();
+                Console.Clear();
+            }
+
+            Console.WriteLine("'Tack för lunchen! Nu tror jag minsann det är dags för projektarbete!'");
+            Console.WriteLine();
+            Console.WriteLine("Tryck på valfri knapp för att fortsätta");
+            Console.ReadKey();
+            Console.Clear();
+
+        }
+
+        private static void Project()
+        {
+            throw new NotImplementedException();
+        }
+
+            private static void Event()
         {
             string dagsevent;
            
@@ -559,6 +692,7 @@ Console.WriteLine(title);
             }
           
         }
+        
         
         private static int Citystroll(int value)
         {
