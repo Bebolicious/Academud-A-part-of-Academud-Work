@@ -39,7 +39,7 @@ namespace Academud__A_part_of_Academud_Work
             Lunch(value);
             value = Project();
             value = Event(value);
-            value = Citystroll(value);
+            value = Citystroll();
             value = Endgame(value);
 
 
@@ -455,7 +455,6 @@ Console.WriteLine(title);
 
         private static void Lunch(int value)
         {
-            //throw new NotImplementedException();
 
             Data.Room = "Lunch";
 
@@ -563,9 +562,62 @@ Console.WriteLine(title);
             throw new NotImplementedException();
         }
 
-        private static int Citystroll(int value)
+        private static int Citystroll()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("'Vilka ska med på promenad' Säger Oscar. Ska du med?\n");
+            Console.WriteLine("1. Nej, jag ska bara titta liiiite till på en uppgift här.");
+            Console.WriteLine("2. Ja, absolut! Känner mig ovanligt hurtfrisk, faktiskt!");
+
+            Console.WriteLine();
+            Console.WriteLine("Ditt val: ");
+            int svarPromenad = int.Parse(Console.ReadLine());
+            Console.ReadKey();
+            Console.Clear();
+
+            if (svarPromenad == 1)
+            {
+                Console.WriteLine("'Nähä....det ser ut som att jag blir ensam då...' Säger Oscar och lämnar surmulet rummet.");
+                Console.ReadKey();
+                Console.Clear();
+            }
+            else
+            {
+                Console.WriteLine("'Vad roligt, då går vi mot kapprummet'!\n");
+                Console.WriteLine();
+                Console.WriteLine("1. Nej, jag behöver ingen jacka");
+                Console.WriteLine("2. Ja, jacka är bra i det kyliga vädret!");
+
+                Console.WriteLine();
+                Console.WriteLine("Ditt val: ");
+                int svarJacka = int.Parse(Console.ReadLine());
+                Console.ReadKey();
+                Console.Clear();
+
+                if (Data.Jacket == true)
+                {
+                    Console.WriteLine("Suck.....");
+                    Console.WriteLine("Nu har du två jackor på dig och ser ut som en idiot." );
+                    Console.WriteLine("På Academud har vi mycket höga krav och du är tyvärr rökt.");
+                    Console.WriteLine();
+                    Console.ReadKey();
+                    Gameover();
+                }
+                else if (Data.Warmth > 3)
+                {
+                    Console.WriteLine("OjOjOj");
+                    Console.WriteLine("Du blir varm av promenaden");
+                    Data.Warmth++;
+                    Console.WriteLine();
+                    Console.WriteLine($"Din värmenivå är nu: {Data.Warmth}");
+                    Console.WriteLine();
+                    Console.ReadKey();
+                    Gameover();
+                }
+            }
+
+
+            return svarPromenad;
+            
         }
 
         private static int Endgame(int value)
