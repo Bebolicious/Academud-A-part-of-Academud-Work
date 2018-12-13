@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 
 namespace Academud__A_part_of_Academud_Work
@@ -19,17 +18,9 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine("BOOTING UP ACADEMUD : {0}%", i, j);
 
             }
-            Console.Clear(); 
+            Console.Clear();
 
-            
             int value = Startgame();
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine($"Karma: {Data.Karma}");
-            Console.WriteLine($"Värmenivå: {Data.Warmth}");
-            Console.WriteLine($"Rum Nr: {Data.Room}");
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.Gray;
             Reception(value);
             value = Classroom1();
             Break();
@@ -39,22 +30,17 @@ namespace Academud__A_part_of_Academud_Work
             Event();
             value = Citystroll();
             Endgame(value);
-
-
-
-
             Gameover();
-
         }
 
-       
+
 
         private static void Printstats()
         {
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.WriteLine($"Academud                               Karma: {Data.Karma}                                Warmth: {Data.Warmth} ");
-           
+
             Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
         }
@@ -191,7 +177,7 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine("Med jackan på rusar du genast till kaffemaskinen. 'Herregud va varmt det är.' tänker du.");
                 Data.Warmth = 1;
                 Data.Jacket = true;
-               
+
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"\nDin värmenivå har ökat.");
                 Console.ForegroundColor = ConsoleColor.Gray;
@@ -219,7 +205,7 @@ namespace Academud__A_part_of_Academud_Work
             {
                 Data.Day = "måndag";
             }
-            else 
+            else
             {
                 Data.Day = "onsdag";
             }
@@ -509,7 +495,7 @@ namespace Academud__A_part_of_Academud_Work
                     Data.Karma++;
                     Console.ReadLine();
                 }
-                
+
             }
 
             Console.WriteLine();
@@ -560,13 +546,13 @@ namespace Academud__A_part_of_Academud_Work
                 Data.Warmth++;
             }
 
-    Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("Ditt val: ");
             int svarFundering = int.Parse(Console.ReadLine());
             Console.ReadKey();
             Console.Clear();
 
-            if (svarFundering <= 1 )
+            if (svarFundering <= 1)
             {
                 Console.WriteLine($"'Ingen är fullärd! Growth mudset är viktigt, {Data.Playername}!'");
             }
@@ -587,7 +573,7 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine(item);
                 Console.WriteLine();
                 Console.Write("Ditt val: ");
-                int svarTest= int.Parse(Console.ReadLine());
+                int svarTest = int.Parse(Console.ReadLine());
 
                 if (svarTest == 1)
                 {
@@ -622,14 +608,14 @@ namespace Academud__A_part_of_Academud_Work
 
 
 
-        private static int Project(int value)
+        private static void Project()
         {
             Console.WriteLine("Mätt som ett smäck är du nu tillbaks i klassrummet och det har blivit dags för klassen att dela in sig i projektgrupper. ");
             Console.WriteLine("Lärar-Oscar har radat upp ett gäng projektidéer och du anmäler dig först av alla till att göra ett coolt MUD-spel!");
 
             if (Data.Karma <= -2)
             {
-                Console.WriteLine("Några 'klasskamrater' som först verkade lika taggade som du på MUD sänker sina händer och ångrar sig." );
+                Console.WriteLine("Några 'klasskamrater' som först verkade lika taggade som du på MUD sänker sina händer och ångrar sig.");
                 Console.WriteLine("När hela klassen satt upp sig på olika projekt är du fortfarande ensam på ditt projekt... vad är det med folk!?");
                 Console.WriteLine("Till slut lyckas Oscar flytta över en klasskamrat från en annan överfull grupp, din något motvilliga projekt-kompis blir: ");
             }
@@ -665,10 +651,10 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine();
                 if (Data.Jacket == true)
                 {
-                Console.WriteLine("1. Ta av dig jackan");
-                Console.WriteLine("2. Knappra på ventilationen med hjälp av meckapären på väggen");
-                Console.WriteLine("3. Tio armhävningar borde öka syreflödet");
-                int svar2 = int.Parse(Console.ReadLine());
+                    Console.WriteLine("1. Ta av dig jackan");
+                    Console.WriteLine("2. Knappra på ventilationen med hjälp av meckapären på väggen");
+                    Console.WriteLine("3. Tio armhävningar borde öka syreflödet");
+                    int svar2 = int.Parse(Console.ReadLine());
                     if (svar2 == 1)
                     {
                         Console.WriteLine("Du tar av dig jackan. Skönt, du frågar dig varför du inte tänkt på det tidigare?");
@@ -737,29 +723,29 @@ namespace Academud__A_part_of_Academud_Work
 
         }
 
-private static int Event(int value)
+        private static void Event()
         {
-           string dagsevent;
-           
+            string dagsevent;
+
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("Klockan slog precis över till 14.00 och du grubblar över vad United Spaces bjuder på idag.");
             if (Data.Day == "måndag")
             {
-                Console.WriteLine($"Det slår dig att det är {Data.Day} och det bjuds på fruitbowl i receptionen" );
+                Console.WriteLine($"Det slår dig att det är {Data.Day} och det bjuds på fruitbowl i receptionen");
                 Console.WriteLine("'Frukt, hur kul e de?' Tänker du för dig själv.");
                 dagsevent = "fruitbowl";
             }
             else
             {
-                
+
                 Console.WriteLine($"Det slår dig att det är {Data.Day} och att det är Sugar Rush i receptionen");
                 dagsevent = "sugar rush";
-                
+
 
             }
 
-        
+
             Random r = new Random();
 
             int val = r.Next(1, 100);
@@ -793,12 +779,12 @@ private static int Event(int value)
                     correct = true;
                     Console.WriteLine($"-Bra jobbat {Data.Playername}, rätt svar var: {val}.");
                 }
-                
+
             }
             Console.ReadLine();
             Console.Clear();
             Console.WriteLine($"{Data.ClassMate} ber dig hämta godis till er båda, vad gör du?\n");
-            
+
             Console.WriteLine($"1. Hämta godis så att det räcker till både dig och {Data.ClassMate}.");
             Console.WriteLine($"2. {Data.ClassMate} kan gott få hämta sitt godis själv, tänker du.");
             if (Data.Jacket == true)
@@ -808,7 +794,7 @@ private static int Event(int value)
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("3. Med tanke på att du fortfarande har jackan på dig så bestämmer du dig för att inte hämta godis alls och istället hänga av dig jackan.");
             }
-            
+
             int svar = int.Parse(Console.ReadLine());
 
             if (svar == 1)
@@ -826,13 +812,10 @@ private static int Event(int value)
             {
                 Data.Karma--;
             }
-          
-        }
-        
-         
+
         }
 
-        private static int Citystroll(int value)
+        private static int Citystroll()
         {
             Console.WriteLine("'Vilka ska med på promenad' Säger Oscar. Ska du med?\n");
             Console.WriteLine("1. Nej, jag ska bara titta liiiite till på en uppgift här.");
@@ -866,7 +849,7 @@ private static int Event(int value)
                 if (Data.Jacket == true)
                 {
                     Console.WriteLine("Suck.....");
-                    Console.WriteLine("Nu har du två jackor på dig och ser ut som en idiot." );
+                    Console.WriteLine("Nu har du två jackor på dig och ser ut som en idiot.");
                     Console.WriteLine("På Academud har vi mycket höga krav och du är tyvärr rökt.");
                     Console.WriteLine();
                     Console.ReadKey();
@@ -887,7 +870,7 @@ private static int Event(int value)
 
 
             return svarPromenad;
-            
+
         }
 
         private static void Endgame(int value)
@@ -904,7 +887,7 @@ private static int Event(int value)
                 Console.Clear();
 
                 Console.WriteLine("'Det sista ni ska göra idag är att lösa en uppgift utan era datorer. Jag vill veta vilken output följande kod ger: '");
-                Console.WriteLine( @"int[] a = { 10, 20, 30, 40, 50, 80 };\n
+                Console.WriteLine(@"int[] a = { 10, 20, 30, 40, 50, 80 };\n
                 Console.WriteLine(a[-1])");
                 Console.WriteLine();
                 Console.WriteLine("1. Den skriver ut 0");
