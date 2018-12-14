@@ -370,7 +370,7 @@ Console.BackgroundColor = ConsoleColor.Black;
                         Console.WriteLine();
                         Console.WriteLine("Ditt val: ");
                         int svarVinnare = int.Parse(Console.ReadLine());
-                        Console.ReadKey();
+                      
                         Printstats();
 
                         // Printstats(); skall in här, samt finlir på texten
@@ -393,6 +393,8 @@ Console.BackgroundColor = ConsoleColor.Black;
                             Console.WriteLine($"\nDin Karmanivå har minskat.");            // Finlira format av input
                             Console.ForegroundColor = ConsoleColor.Gray;
                         }
+                        Console.ReadKey();
+                        Printstats();
                     }
 
                     else
@@ -877,7 +879,7 @@ Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine($"\nDin Karmanivå har minskat");            // Finlira format av input
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
-
+            Console.ReadKey();
         }
 
         private static int Citystroll()
