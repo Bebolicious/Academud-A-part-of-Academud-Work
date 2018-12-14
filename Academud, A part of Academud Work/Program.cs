@@ -175,7 +175,7 @@ namespace Academud__A_part_of_Academud_Work
                 Data.Warmth = 1;
                 Data.Jacket = true;
 
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\nDin värmenivå har ökat.");            // Finlira format av input
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.ReadKey();
@@ -256,7 +256,7 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine($"{Data.ClassMate} sitter i vanlig ordning med hörlurarna på och lyssnar på egenkomponerad blip-blop.");
 
             Console.WriteLine();
-            
+
             Console.ReadKey();
             Printstats();
             // Printstats(); skall in här, samt finlir på texten
@@ -275,9 +275,19 @@ namespace Academud__A_part_of_Academud_Work
             if (svar == 1)
             {
                 Data.Karma--;
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine($"\nDin Karmanivå har minskat.");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
             else
+            { 
                 Data.Karma++;
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\nDin Karmanivå har ökat.");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
 
             Console.ReadKey();
             Printstats();
@@ -321,7 +331,7 @@ namespace Academud__A_part_of_Academud_Work
                         Console.WriteLine("Nu spelar du alltså pingis med jackan på. Svetten rinner, du luktar och är långt ifrån 'Business Casual'. Korkat.");
                         Data.Warmth++;
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine($"Din värmenivå har ökats.");
+                        Console.WriteLine($"Din värmenivå har ökat.");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.ReadKey();
                         Printstats();
@@ -363,16 +373,20 @@ namespace Academud__A_part_of_Academud_Work
                         {
                             Console.WriteLine("Du skakar hand och öser beröm över din motståndare! Vilket spel! Glatt traskar ni arm i arm tillbaka till klassrummet.\n");
                             Data.Karma++;
-                            Console.WriteLine($"Din Karma-nivå är nu: {Data.Karma}");
-                            Console.ReadKey();
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"\nDin Karmanivå har ökat.");            // Finlira format av input
+                            Console.ForegroundColor = ConsoleColor.Gray;
                         }
                         else
                         {
                             Console.WriteLine("Du slänger dig upp på bordet skrålandes 'Segern är MIN, segern är MIN!!!");
                             Console.WriteLine($"Glad i hågen klappar du {Data.ClassMate} på huvudet med orden 'Bättre lycka nästa gång - SUCKER!'");
                             Data.Karma--;
-                            Console.WriteLine($"Din Karma-nivå är nu: {Data.Karma}");
-                            Console.ReadKey();
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine($"\nDin Karmanivå har minskat.");            // Finlira format av input
+                            Console.ForegroundColor = ConsoleColor.Gray;
                         }
                     }
 
@@ -396,16 +410,20 @@ namespace Academud__A_part_of_Academud_Work
                         {
                             Console.WriteLine("Du skakar hand och öser beröm över din motståndare! Vilket spel! Glatt traskar ni arm i arm tillbaka till klassrummet.\n");
                             Data.Karma++;
-                            Console.WriteLine($"Din Karma-nivå är nu: {Data.Karma}");
-                            Console.ReadKey();
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine($"\nDin Karmanivå har ökat.");            // Finlira format av input
+                            Console.ForegroundColor = ConsoleColor.Gray;
                         }
                         else
                         {
                             Console.WriteLine("Besvikelsen går inte att kontrollera! Du slår racket i bordet och ropar ett par mindre väl valda svordomar.");
                             Console.WriteLine(" Usch så pinsamt att förstöra stämningen nu när ni ska tillbaka till klassrummet.\n");
                             Data.Karma--;
-                            Console.WriteLine($"Din Karma-nivå är nu: {Data.Karma}");
-                            Console.ReadKey();
+                            Console.WriteLine();
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine($"\nDin Karmanivå har minskat.");            // Finlira format av input
+                            Console.ForegroundColor = ConsoleColor.Gray;
                         }
                     }
 
@@ -483,12 +501,20 @@ namespace Academud__A_part_of_Academud_Work
                     Console.WriteLine($"{Data.ClassMate} ger dig en kylig blick och du skäms lite för att du tog åt dig äran själv.");
                     Data.Karma--;
                     Console.ReadLine();
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.WriteLine($"\nDin Karmanivå har minskat.");            // Finlira format av input
+                    Console.ForegroundColor = ConsoleColor.Gray;
                 }
                 else
                 {
                     Console.WriteLine($"{Data.ClassMate} ger dig en high five och du tänker att det är jäkla käckt med peer-to-peer!");
                     Data.Karma++;
                     Console.ReadLine();
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"\nDin Karmanivå har ökat.");            // Finlira format av input
+                    Console.ForegroundColor = ConsoleColor.Gray;
                 }
 
             }
@@ -538,7 +564,11 @@ namespace Academud__A_part_of_Academud_Work
             {
                 Console.WriteLine("3. Nej, men jag skulle vilja ta av mig jackan ändå. Det är ju inte speciellt konsultmässigt att att jag har den på!");
                 Data.Jacket = false;
-                Data.Warmth++;
+                Data.Warmth--;
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"\nDin värmennivå har minskat.");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
 
             Console.WriteLine();
@@ -654,17 +684,26 @@ namespace Academud__A_part_of_Academud_Work
                     {
                         Console.WriteLine("Du tar av dig jackan. Skönt, du frågar dig varför du inte tänkt på det tidigare?");
                         Data.Warmth--;
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($"\nDin värmennivå har minskat.");            // Finlira format av input
+                        Console.ForegroundColor = ConsoleColor.Gray;
                     }
                     else if (svar2 == 2)
                     {
                         Console.WriteLine("Med några simpla klick på väggapparaturen kickar ventilationen igång. Göttigt!");
                         Data.Warmth--;
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($"\nDin värmennivå har minskat.");            // Finlira format av input
+                        Console.ForegroundColor = ConsoleColor.Gray;
                     }
                     else
                     {
                         Console.WriteLine("Du slänger dig ner på golvet och känner blodet pumpa runt i hela kroppen medan du göra din armhävningar.");
                         Console.WriteLine($"{Data.ProjectBuddy} kollar förvirrat på dig och svimfärdig inser du att det kanske inte var din bästa idé i livet.");
                         Data.Warmth += 2;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"\nDin värmennivå har ökat med två!");            // Finlira format av input
+                        Console.ForegroundColor = ConsoleColor.Gray;
                     }
                 }
 
@@ -677,12 +716,18 @@ namespace Academud__A_part_of_Academud_Work
                     {
                         Console.WriteLine("Med några simpla klick på väggapparaturen kickar ventilationen igång. Göttigt!");
                         Data.Warmth--;
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                        Console.WriteLine($"\nDin värmennivå har minskat.");            // Finlira format av input
+                        Console.ForegroundColor = ConsoleColor.Gray;
                     }
                     else
                     {
                         Console.WriteLine("Du slänger dig ner på golvet och känner blodet pumpa runt i hela kroppen medan du göra din armhävningar.");
                         Console.WriteLine($"{Data.ProjectBuddy} kollar förvirrat på dig och svimfärdig inser du att det kanske inte var din bästa idé i livet.");
                         Data.Warmth += 2;
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine($"\nDin värmennivå har ökat med två!");            // Finlira format av input
+                        Console.ForegroundColor = ConsoleColor.Gray;
                     }
                 }
             }
@@ -691,6 +736,9 @@ namespace Academud__A_part_of_Academud_Work
             {
                 Console.WriteLine("Ooookej.... du fortsätter att andas in den bedrövliga luften och känner hur huvudet börjar dunka. Det har nog inget samband.");
                 Data.Warmth++;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine($"\nDin värmennivå har ökat.");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
 
             Console.WriteLine();
@@ -705,10 +753,16 @@ namespace Academud__A_part_of_Academud_Work
             if (svar == 1)
             {
                 Data.Karma--;
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine($"\nDin Karmanivå har minskat");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
             else
             {
                 Data.Karma++;
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\nDin Karmanivå har ökat.");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
 
             Console.WriteLine();
@@ -795,17 +849,26 @@ namespace Academud__A_part_of_Academud_Work
             if (svar == 1)
             {
                 Data.Karma++;
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\nDin Karmanivå har ökat");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
             else if (svar == 3)
             {
                 Data.Warmth--;
                 Data.Karma--;
                 Data.Karma--;
+                Console.ForegroundColor = ConsoleColor.DarkBlue;
+                Console.WriteLine($"\nDin Karmanivå OCH värmenivå minskar!!");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
 
             }
             else
             {
                 Data.Karma--;
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"\nDin Karmanivå har minskat");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
 
         }
@@ -825,6 +888,10 @@ namespace Academud__A_part_of_Academud_Work
             if (svarPromenad == 1)
             {
                 Console.WriteLine("'Nähä....det ser ut som att jag blir ensam då...' Säger Oscar och lämnar surmulet rummet.");
+                Data.Karma--;
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine($"\nDin Karmanivå har minskat");            // Finlira format av input
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.ReadKey();
                 Printstats();
             }
@@ -850,16 +917,15 @@ namespace Academud__A_part_of_Academud_Work
                     Console.ReadKey();
                     Gameover();
                 }
-                else if (Data.Warmth > 3)
+                else 
                 {
                     Console.WriteLine("OjOjOj");
-                    Console.WriteLine("Du blir varm av promenaden");
+                    Console.WriteLine("Du går snabbt och blir lite väl varm av promenaden");
                     Data.Warmth++;
-                    Console.WriteLine();
-                    Console.WriteLine($"Din värmenivå är nu: {Data.Warmth}");
-                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine($"\nDin värmenivå ökar");            // Finlira format av input
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.ReadKey();
-                    Gameover();
                 }
             }
 
