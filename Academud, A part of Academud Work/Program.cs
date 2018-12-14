@@ -793,7 +793,7 @@ Console.BackgroundColor = ConsoleColor.Black;
                 
                 Console.Write("3. Med tanke på att du fortfarande har jackan på dig så bestämmer du dig för att inte hämta godis alls och istället hänga av dig jackan.");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("[Dialogval upplåst] ");
+                Console.WriteLine(" [Dialogval upplåst] ");
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
 
@@ -856,6 +856,7 @@ Console.BackgroundColor = ConsoleColor.Black;
                     Console.WriteLine("På Academud har vi mycket höga krav och du är tyvärr rökt.");
                     Console.WriteLine();
                     Console.ReadKey();
+                    Printstats();
                     Gameover();
                 }
                 else if (Data.Warmth > 3)
@@ -945,12 +946,14 @@ Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine(A + '  ' + B);");
                 if (Data.Karma >= 3)
                 {
+                    Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine("1. V R");
                     Console.WriteLine("2. O K");
+                    Console.Write("3. Q M ");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write("[Dialogval upplåst]");
-                    Console.ForegroundColor = ConsoleColor.Gray;
-                    Console.WriteLine("3. Q M ");
+                    Console.WriteLine(" [Dialogval upplåst]");
+                    
+                    
 
                 }
 
