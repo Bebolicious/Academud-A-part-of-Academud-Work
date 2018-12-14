@@ -43,15 +43,19 @@ namespace Academud__A_part_of_Academud_Work
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine($"Academud                               Karma: {Data.Karma}                                Warmth: {Data.Warmth} ");
+            Console.Write($"Academud                                                                          Karma: {Data.Karma}                                                                      Värmenivå: {Data.Warmth}");
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine($"                                                                                                                                                                            ");
 
-            Console.BackgroundColor = ConsoleColor.Black;
+Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
         private static int Startgame()
         {
-
+            Data.Jacket = true;
+            Data.Karma = 0;
+            Data.Warmth = 0;
             Console.Write("Välkommen till "); Console.ForegroundColor = ConsoleColor.Green;
             Console.Title = "Academud";
             string title = @"
@@ -105,6 +109,7 @@ namespace Academud__A_part_of_Academud_Work
                 Console.WriteLine("2. Släpp in mig jag är 2 minuter sen.");
                 Console.WriteLine("3. En falafel stal min måsrulle!");
                 Console.WriteLine(">");                   // Finlira format av input
+                
 
                 int svar2 = int.Parse(Console.ReadLine());
                 if (svar2 == 1 || svar2 == 2 || svar2 == 3)
@@ -722,7 +727,7 @@ namespace Academud__A_part_of_Academud_Work
         {
             string dagsevent;
 
-            Console.Clear();
+            Printstats();
             Console.WriteLine();                                              // Printstats(); skall in här, samt finlir på texten
             Console.WriteLine("Klockan slog precis över till 14.00 och du grubblar över vad United Spaces bjuder på idag.");
             if (Data.Day == "måndag")
@@ -782,12 +787,14 @@ namespace Academud__A_part_of_Academud_Work
 
             Console.WriteLine($"1. Hämta godis så att det räcker till både dig och {Data.ClassMate}.");
             Console.WriteLine($"2. {Data.ClassMate} kan gott få hämta sitt godis själv, tänker du.");
-            if (Data.Jacket == true)
+            if (Data.Warmth >= 2)
             {
+                
+                
+                Console.Write("3. Med tanke på att du fortfarande har jackan på dig så bestämmer du dig för att inte hämta godis alls och istället hänga av dig jackan.");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.Write("[Dialogval upplåst] ");
+                Console.WriteLine("[Dialogval upplåst] ");
                 Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine("3. Med tanke på att du fortfarande har jackan på dig så bestämmer du dig för att inte hämta godis alls och istället hänga av dig jackan.");
             }
 
             int svar = int.Parse(Console.ReadLine());
@@ -812,6 +819,7 @@ namespace Academud__A_part_of_Academud_Work
 
         private static int Citystroll()
         {
+            Printstats();
             Console.WriteLine("'Vilka ska med på promenad' Säger Oscar. Ska du med?\n");
             Console.WriteLine("1. Nej, jag ska bara titta liiiite till på en uppgift här.");
             Console.WriteLine("2. Ja, absolut! Känner mig ovanligt hurtfrisk, faktiskt!");
