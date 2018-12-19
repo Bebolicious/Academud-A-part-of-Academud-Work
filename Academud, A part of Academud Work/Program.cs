@@ -10,7 +10,7 @@ namespace Academud__A_part_of_Academud_Work
         {
 
 
-            for (int i = 0, j = 0; i < 20001; i++, j++)
+            for (int i = 0, j = 0; i < 30001; i++, j++)
             {
 
                 int top = Console.CursorTop;
@@ -21,9 +21,9 @@ namespace Academud__A_part_of_Academud_Work
             }
             Console.Clear();
 
-            
+
             int value = Startgame();
-            
+
             Reception(value);
             value = Classroom1();
             Break();
@@ -43,11 +43,11 @@ namespace Academud__A_part_of_Academud_Work
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.Gray;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.Write($"Academud                                                                          Karma: {Data.Karma}                                                                      Värmenivå: {Data.Warmth}");
+            Console.Write($"Academud                                                                          Karma: {Data.Karma}                                                                     Värmenivå: {Data.Warmth}");
             Console.BackgroundColor = ConsoleColor.DarkGray;
             Console.WriteLine($"                                                                                                                                                                            ");
 
-Console.BackgroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
         }
 
@@ -73,13 +73,13 @@ Console.BackgroundColor = ConsoleColor.Black;
             Console.ForegroundColor = ConsoleColor.Gray;
 
             Console.Write("\n'Här tror vi på ett growth mudset.'");
-            Console.WriteLine("\n\nKlicka på valfri knapp för att börja spela");        
+            Console.WriteLine("\n\nKlicka på valfri knapp för att börja spela");
             Console.ReadKey();
 
 
             Printstats();
             Data.Room = "Startup";
-            
+
 
 
             Console.Write("Det är en vanlig dag i innerstaden Göteborg, det regnar snett underifrån och du befinner dig utanför Östra Hamngatan 16.");
@@ -87,7 +87,7 @@ Console.BackgroundColor = ConsoleColor.Black;
             Console.WriteLine("1. Ring upp till receptionen via porttelefonen.");
             Console.WriteLine("2. Stå och vänta i regnet på att någon skall släppa in dig, gud va pinsamt.");
             Console.WriteLine("3. Installera ParaKey-appen på din allt för gamla smartphone med risk för vattenskada pga regnet.\n");
-            Console.WriteLine("> ");
+            Console.Write("> ");
             int svar = int.Parse(Console.ReadLine());
 
             return svar;
@@ -107,7 +107,7 @@ Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine("1. Jag jobbar för Academud!");
                 Console.WriteLine("2. Släpp in mig jag är två minuter sen.");
                 Console.WriteLine("3. En falafel stal min måsrulle!");
-                Console.WriteLine("> ");
+                Console.Write("> ");
 
                 int svar2 = int.Parse(Console.ReadLine());
                 if (svar2 == 1 || svar2 == 2 || svar2 == 3)
@@ -137,6 +137,7 @@ Console.BackgroundColor = ConsoleColor.Black;
                 Console.WriteLine("Vill du läsa hela Appstores ToS?");
                 Console.WriteLine("1. Ja, det låter superspännande!");
                 Console.WriteLine("2. Nej TACK!");
+                Console.Write("> ");
                 tos = int.Parse(Console.ReadLine());
                 if (tos == 1)
                 {
@@ -160,6 +161,7 @@ Console.BackgroundColor = ConsoleColor.Black;
             Console.WriteLine("\nVill du hänga av dig jackan?");
             Console.WriteLine("1. Ja");
             Console.WriteLine("2. Nej");                            // Finlira format av input
+            Console.Write("> ");
             string jacka = Console.ReadLine();
             string jackasvar = jacka.Trim().ToLower();
             if (jackasvar == "1")
@@ -198,7 +200,7 @@ Console.BackgroundColor = ConsoleColor.Black;
             Console.WriteLine("Du kollar på din kalender och ser att det idag är:\n ");
             Console.WriteLine("1. Måndag");
             Console.WriteLine("2. Onsdag");
-            Console.Write(">");
+            Console.Write("> ");
             int dagsval = int.Parse(Console.ReadLine());
             if (dagsval == 1)
             {
@@ -284,7 +286,7 @@ Console.BackgroundColor = ConsoleColor.Black;
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
             else
-            { 
+            {
                 Data.Karma++;
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -304,8 +306,7 @@ Console.BackgroundColor = ConsoleColor.Black;
             Data.Room = "Rast";
 
             Console.WriteLine($"Så många val! Vad vill du göra på rasten?");
-            Console.WriteLine();
-            Console.Write("1. Pingis! Rundpingis! Massa pingis! ");
+            Console.WriteLine("1. Pingis! Rundpingis! Massa pingis! ");
 
             if (Data.Playername.ToLower() != "magnus")
             {
@@ -333,7 +334,7 @@ Console.BackgroundColor = ConsoleColor.Black;
                     {
                         Console.WriteLine("Nu spelar du alltså pingis med jackan på. Svetten rinner, du luktar och är långt ifrån 'Business Casual'. Korkat.");
                         Data.Warmth++;
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine($"Din värmenivå har ökat.");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         Console.ReadKey();
@@ -366,7 +367,7 @@ Console.BackgroundColor = ConsoleColor.Black;
                         Console.WriteLine("2. Nejnejnej, pingis är på är på liv och död!");
                         Console.Write("> ");
                         int svarVinnare = int.Parse(Console.ReadLine());
-                      
+
                         Printstats();
 
                         // Printstats(); skall in här, samt finlir på texten
@@ -446,7 +447,7 @@ Console.BackgroundColor = ConsoleColor.Black;
 
                     do
                     {
-                        Console.WriteLine("Ange lösenord:");
+                        Console.Write("Ange lösenord: ");
                         input = Console.ReadLine();
 
                     } while (input != password);
@@ -577,7 +578,7 @@ Console.BackgroundColor = ConsoleColor.Black;
             {
                 Data.Jacket = false;
                 Data.Warmth--;
-Console.WriteLine();
+                Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"\nDin värmennivå har minskat.");            // Finlira format av input
                 Console.ForegroundColor = ConsoleColor.Gray;
@@ -601,7 +602,7 @@ Console.WriteLine();
                 Console.Write("> ");
                 int svarTest = int.Parse(Console.ReadLine());
 
-                if (svarTest == 1)                                                      
+                if (svarTest == 1)
                 {
                     poäng++;
                 }
@@ -645,18 +646,18 @@ Console.WriteLine();
             {
                 Console.WriteLine("Några 'klasskamrater' som först verkade lika taggade som du på MUD sänker sina händer och ångrar sig.");
                 Console.WriteLine("När hela klassen satt upp sig på olika projekt är du fortfarande ensam på ditt projekt... vad är det med folk!?");
-                Console.WriteLine("Till slut lyckas Oscar flytta över en klasskamrat från en annan överfull grupp, din något motvilliga projekt-kompis blir: ");
+                Console.Write("Till slut lyckas Oscar flytta över en klasskamrat från en annan överfull grupp, din något motvilliga projekt-kompis blir: ");
             }
 
             else if (Data.Karma >= -1 && Data.Karma < 2)
             {
-                Console.WriteLine("När alla delat in sig i grupper har du en hyfsat motiverad projekt-kompis med dig i din grupp, det blev: ");
+                Console.Write("När alla delat in sig i grupper har du en hyfsat motiverad projekt-kompis med dig i din grupp, det blev: ");
             }
 
             else
             {
                 Console.WriteLine("Alla verkar vilja vara med i din grupp, det slutar med att Oscar får dela upp er i flera smågrupper. ");
-                Console.WriteLine("Till slut blir ni två personer i din grupp, din exalterade projekt-kompis blir: ");
+                Console.Write("Till slut blir ni två personer i din grupp, din exalterade projekt-kompis blir: ");
             }
             Data.ProjectBuddy = Console.ReadLine();
             Console.WriteLine();
@@ -742,7 +743,7 @@ Console.WriteLine();
             {
                 Console.WriteLine("Ooookej.... du fortsätter att andas in den bedrövliga luften och känner hur huvudet börjar dunka. Det har nog inget samband.");
                 Data.Warmth++;
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"\nDin värmennivå har ökat.");            // Finlira format av input
                 Console.ForegroundColor = ConsoleColor.Gray;
             }
@@ -796,8 +797,6 @@ Console.WriteLine();
 
                 Console.WriteLine($"Det slår dig att det är {Data.Day} och att det är Sugar Rush i receptionen.");
                 dagsevent = "sugar rush";
-
-
             }
 
 
@@ -844,8 +843,6 @@ Console.WriteLine();
             Console.WriteLine($"2. {Data.ClassMate} kan gott få hämta sitt godis själv, tänker du.");
             if (Data.Warmth >= 2)
             {
-                
-                
                 Console.Write("3. Med tanke på att du fortfarande har jackan på dig så bestämmer du dig för att inte hämta godis alls och istället hänga av dig jackan.");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine(" [Dialogval upplåst] ");
@@ -902,7 +899,7 @@ Console.WriteLine();
                 Console.WriteLine("'Vad roligt, då går vi mot kapprummet!'\n");
                 Console.WriteLine("1. Nej, jag behöver ingen jacka");
                 Console.WriteLine("2. Ja, jacka är bra i det kyliga vädret!");
-                Console.WriteLine("> ");
+                Console.Write("> ");
                 int svarJacka = int.Parse(Console.ReadLine());
                 Console.ReadKey();
                 Printstats();
@@ -917,12 +914,12 @@ Console.WriteLine();
                     Printstats();
                     Gameover();
                 }
-                else 
+                else
                 {
                     Console.WriteLine("OjOjOj");
                     Console.WriteLine("Du går snabbt och blir lite väl varm av promenaden");
                     Data.Warmth++;
-                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"\nDin värmenivå ökar");            // Finlira format av input
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.ReadKey();
@@ -949,7 +946,7 @@ Console.WriteLine();
 
                 Console.WriteLine("'Det sista ni ska göra idag är att lösa en uppgift utan era datorer. Jag vill veta vilken output följande kod ger: '");
                 Console.WriteLine(@"int[] a = { 10, 20, 30, 40, 50, 80 };\n
-                Console.WriteLine(a[-1])");
+                                    Console.WriteLine(a[-1])");
                 Console.WriteLine();
                 Console.WriteLine("1. Den skriver ut 0");
                 Console.WriteLine("2. Den skriver ut -10");
@@ -997,10 +994,10 @@ Console.WriteLine();
                 Printstats();
 
                 Console.WriteLine(@"char A = 'P';\n
-                char B = Convert.ToChar(76);\n
-                A++;\n
-                B++;\n
-                Console.WriteLine(A + '  ' + B);");
+                                    char B = Convert.ToChar(76);\n
+                                    A++;\n
+                                    B++;\n
+                                    Console.WriteLine(A + '  ' + B);");
                 if (Data.Karma >= 3)
                 {
                     Console.ForegroundColor = ConsoleColor.Gray;
@@ -1009,8 +1006,8 @@ Console.WriteLine();
                     Console.Write("3. Q M ");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(" [Dialogval upplåst]");
-                    
-                    
+
+
 
                 }
 
@@ -1076,6 +1073,7 @@ Console.WriteLine();
             Console.WriteLine("Vill du spela igen?");
             Console.WriteLine("1. Självklart vill jag spela det här fantastiska spelet igen!");
             Console.WriteLine("2. Jag skulle hellre gå runt med TRE jackor INOMHUS en hel dag. Nej tack.");
+            Console.Write("> ");
             int svar = int.Parse(Console.ReadLine());
             if (svar == 1)
             {
