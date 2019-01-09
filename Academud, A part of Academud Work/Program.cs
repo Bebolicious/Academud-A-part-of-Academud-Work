@@ -10,7 +10,7 @@ namespace Academud__A_part_of_Academud_Work
         {
 
 
-            for (int i = 0, j = 0; i < 30001; i++, j++)
+            for (int i = 0, j = 0; i < 40001; i++, j++)
             {
 
                 int top = Console.CursorTop;
